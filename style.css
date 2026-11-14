@@ -1114,12 +1114,12 @@ input[type="range"]::-webkit-slider-thumb {
 /* ── Floating White Bottom Navigation Pill (Fixed on viewport) ── */
 .floating-bottom-menu {
   position: fixed;
-  bottom: 20px;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 460px;
-  height: 66px;
+  width: calc(100% - 24px);
+  max-width: 440px;
+  height: 64px;
   background: #FFFFFF;
   border-radius: var(--radius-pills);
   box-shadow: var(--shadow-bottom-menu);
@@ -1128,11 +1128,12 @@ input[type="range"]::-webkit-slider-thumb {
   justify-content: space-around;
   padding: 0 8px;
   z-index: 1000;
-  border: 1px solid rgba(238, 241, 240, 0.9);
+  border: 1px solid rgba(238, 241, 240, 0.95);
+  box-sizing: border-box;
 }
 
 .bottom-menu-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -1140,16 +1141,19 @@ input[type="range"]::-webkit-slider-thumb {
   border: none;
   color: var(--muted-text);
   font-family: var(--font-family);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 8px 10px;
   border-radius: var(--radius-pills);
   transition: var(--transition-smooth);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .bottom-menu-item iconify-icon {
-  font-size: 22px;
+  font-size: 21px;
+  flex-shrink: 0;
 }
 
 .bottom-menu-item:hover {
@@ -1159,6 +1163,32 @@ input[type="range"]::-webkit-slider-thumb {
 .bottom-menu-item.active {
   background: var(--mint-tint);
   color: var(--primary-emerald);
+}
+
+/* On mobile / compact screens: show label ONLY on the active tab so it NEVER clips or overflows! */
+@media (max-width: 480px) {
+  .floating-bottom-menu {
+    height: 60px;
+    padding: 0 6px;
+  }
+  .bottom-menu-item:not(.active) span {
+    display: none;
+  }
+  .bottom-menu-item:not(.active) {
+    padding: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+  }
+  .bottom-menu-item.active {
+    padding: 8px 14px;
+    border-radius: var(--radius-pills);
+  }
+  .bottom-menu-item.active span {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+  }
 }
 
 /* ── Checkerboard for Transparent Canvases ── */
