@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Gemini Watermark Remover – Android App Experience</title>
+  <title>Gemini Watermark Remover</title>
   <meta name="author" content="Ash" />
   <meta name="description"
-    content="Free Gemini watermark remover &amp; logo remover with an Android mobile app interface. Lossless mathematical unblending with 100% original quality. Created by Ash." />
+    content="Free Gemini watermark remover &amp; logo remover. Lossless mathematical unblending with 100% original quality. Created by Ash." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#F4F6F5" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -25,7 +25,7 @@
   <meta property="og:site_name" content="Gemini Watermark Remover" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ashy0927.github.io/gemini-watermark-remover/" />
-  <meta property="og:title" content="Gemini Watermark Remover – Android App Interface" />
+  <meta property="og:title" content="Gemini Watermark Remover – Lossless Unblender by Ash" />
   <meta property="og:description"
     content="Client-side lossless unblender for Gemini Omni &amp; Nano Banana AI images and videos with zero blur." />
   <meta property="og:image" content="https://ashy0927.github.io/gemini-watermark-remover/assets/logo.webp" />
@@ -34,16 +34,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css?v=2.6.0" />
+  <link rel="stylesheet" href="./style.css?v=2.7.0" />
   <style>
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   VELA / ANDROID APP DESIGN SYSTEM FOR GEMINI WATERMARK REMOVER
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-
+/* ── INLINED CRITICAL CSS ── */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Design Tokens from Reference */
   --bg-app: #F4F6F5;
   --bg-card: #FFFFFF;
   --primary-emerald: #0A6B52;
@@ -57,9 +53,7 @@
   --soft-grey: #EEF1F0;
   --divider: #EEF1F0;
   --alert-dot: #E8572A;
-  --board-bg: #E2E3DF;
 
-  /* Typography & Radii */
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --radius-cards: 24px;
   --radius-card-sm: 18px;
@@ -67,17 +61,14 @@
   --radius-buttons-sm: 12px;
   --radius-pills: 999px;
 
-  /* Shadows */
   --shadow-card: 0 4px 20px rgba(16, 32, 27, 0.04);
   --shadow-card-hover: 0 8px 30px rgba(16, 32, 27, 0.08);
   --shadow-emerald: 0 8px 24px rgba(10, 107, 82, 0.22);
   --shadow-bottom-menu: 0 12px 36px rgba(16, 32, 27, 0.12);
-  --shadow-phone-frame: 0 25px 60px -15px rgba(16, 32, 27, 0.18), 0 0 0 1px rgba(16, 32, 27, 0.05);
 
   --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -88,11 +79,12 @@
 img, svg, video, canvas {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 html {
   font-family: var(--font-family);
-  background-color: var(--board-bg);
+  background-color: var(--bg-app);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -104,14 +96,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--board-bg);
+  background-color: var(--bg-app);
   color: var(--ink);
   font-family: var(--font-family);
   padding: 0;
+  margin: 0;
   overflow-x: hidden;
 }
 
-/* â”€â”€ Utilities â”€â”€ */
 .hidden { display: none !important; }
 .text-ink { color: var(--ink); }
 .text-muted { color: var(--muted-text); }
@@ -122,182 +114,36 @@ body {
 .fw-700 { font-weight: 700; }
 .fw-800 { font-weight: 800; }
 
-/* â”€â”€ Top Desktop Presentation Bar â”€â”€ */
-.desktop-view-bar {
+.app-container {
   width: 100%;
-  max-width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 24px;
-  margin: 12px auto;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  border-radius: var(--radius-pills);
-  box-shadow: 0 2px 12px rgba(16, 32, 27, 0.05);
-  z-index: 100;
-  transition: var(--transition-smooth);
-}
-
-@media (max-width: 820px) {
-  .desktop-view-bar {
-    display: none; /* Mobile screens run full viewport directly */
-  }
-}
-
-.desktop-view-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.desktop-view-brand img {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.desktop-view-brand-title {
-  font-weight: 800;
-  font-size: 16px;
-  color: var(--ink);
-  letter-spacing: -0.3px;
-}
-
-.desktop-view-brand-pill {
-  background: var(--mint-tint);
-  color: var(--primary-emerald);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: var(--radius-pills);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.desktop-view-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--soft-grey);
-  padding: 4px;
-  border-radius: var(--radius-pills);
-}
-
-.view-mode-btn {
-  border: none;
-  background: transparent;
-  color: var(--muted-text);
-  font-family: var(--font-family);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 7px 16px;
-  border-radius: var(--radius-pills);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: var(--transition-smooth);
-}
-
-.view-mode-btn:hover {
-  color: var(--ink);
-}
-
-.view-mode-btn.active {
-  background: #FFFFFF;
-  color: var(--primary-emerald);
-  box-shadow: 0 2px 8px rgba(16, 32, 27, 0.08);
-}
-
-/* â”€â”€ App Viewport / Shell â”€â”€ */
-.app-viewport {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 10px 0 60px 0;
-  transition: var(--transition-smooth);
-}
-
-/* Mobile Frame (Android / iPhone container mode) */
-.phone-frame-container {
-  width: 100%;
-  max-width: 430px;
-  min-height: 860px;
-  background: var(--bg-app);
-  border-radius: 46px;
-  box-shadow: var(--shadow-phone-frame);
-  position: relative;
-  overflow: hidden;
-  border: 10px solid #FFFFFF;
+  max-width: 500px;
+  min-height: 100vh;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  transition: var(--transition-smooth);
+  position: relative;
+  background-color: var(--bg-app);
 }
 
-/* Fullscreen / Expanded Web App Mode */
-.app-viewport.expanded-mode .phone-frame-container {
-  max-width: 900px;
-  border-radius: 32px;
-  border: 1px solid var(--divider);
-}
-
-/* Responsive on Mobile Devices */
-@media (max-width: 540px) {
-  body {
-    background-color: var(--bg-app);
-  }
-  .app-viewport {
-    padding: 0;
-  }
-  .phone-frame-container {
+@media (max-width: 520px) {
+  .app-container {
     max-width: 100%;
-    min-height: 100vh;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
   }
 }
 
-/* Android Top Status Notch Bar Simulation */
-.android-status-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 24px 8px 24px;
-  background: var(--bg-app);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink);
-  z-index: 50;
-}
-
-.status-bar-icons {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  font-size: 14px;
-}
-
-/* â”€â”€ Screens Container & Screen Layouts â”€â”€ */
 .screens-wrapper {
   flex: 1;
   width: 100%;
-  position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 8px 18px 110px 18px; /* space for floating bottom menu */
-  -webkit-overflow-scrolling: touch;
+  padding: 24px 18px 110px 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-screen {
   display: none;
   flex-direction: column;
-  gap: 24px; /* Generous spacing 22-28px */
-  animation: fadeInScreen 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 24px;
+  animation: fadeInScreen 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .app-screen.active {
@@ -305,17 +151,10 @@ body {
 }
 
 @keyframes fadeInScreen {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* â”€â”€ Screen Header Component â”€â”€ */
 .screen-header {
   display: flex;
   align-items: center;
@@ -340,6 +179,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  flex-shrink: 0;
 }
 
 .profile-avatar-ring img {
@@ -393,12 +233,11 @@ body {
   border: 2px solid #FFFFFF;
 }
 
-/* â”€â”€ Standard Inner Header (For sub-screens: Back + Title + Help) â”€â”€ */
 .sub-screen-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 0 10px 0;
+  padding: 4px 0 8px 0;
 }
 
 .sub-header-btn {
@@ -427,7 +266,6 @@ body {
   color: var(--ink);
 }
 
-/* â”€â”€ Card Components â”€â”€ */
 .app-card {
   background: var(--bg-card);
   border-radius: var(--radius-cards);
@@ -444,7 +282,6 @@ body {
   box-shadow: var(--shadow-card-hover);
 }
 
-/* â”€â”€ Status / Engine Balance Card â”€â”€ */
 .balance-card {
   background: var(--bg-card);
   border-radius: var(--radius-cards);
@@ -454,6 +291,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(238, 241, 240, 0.7);
 }
 
 .balance-title {
@@ -494,7 +333,6 @@ body {
   vertical-align: middle;
 }
 
-/* Mint Account Strip with Dashed Border */
 .mint-account-strip {
   width: 100%;
   background: var(--mint-light);
@@ -561,7 +399,6 @@ body {
   background: var(--deep-green);
 }
 
-/* â”€â”€ Emerald Gradient Banner â”€â”€ */
 .emerald-gradient-banner {
   background: linear-gradient(135deg, var(--deep-green) 0%, var(--primary-emerald) 100%);
   border-radius: var(--radius-cards);
@@ -612,7 +449,7 @@ body {
 }
 
 .banner-3d-lime {
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 800;
   color: var(--lime-accent);
   text-shadow: 2px 4px 12px rgba(10, 107, 82, 0.4);
@@ -621,7 +458,6 @@ body {
   letter-spacing: -1px;
 }
 
-/* â”€â”€ Quick Actions Card (3 Circles) â”€â”€ */
 .quick-actions-card {
   background: var(--bg-card);
   border-radius: var(--radius-cards);
@@ -630,6 +466,7 @@ body {
   align-items: center;
   justify-content: space-around;
   box-shadow: var(--shadow-card);
+  border: 1px solid rgba(238, 241, 240, 0.7);
 }
 
 .quick-action-item {
@@ -640,7 +477,6 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  text-decoration: none;
 }
 
 .quick-action-circle {
@@ -660,7 +496,6 @@ body {
 .quick-action-item:hover .quick-action-circle {
   transform: translateY(-2px);
   background: var(--deep-green);
-  box-shadow: 0 6px 18px rgba(10, 107, 82, 0.35);
 }
 
 .quick-action-label {
@@ -669,7 +504,6 @@ body {
   color: var(--ink);
 }
 
-/* â”€â”€ Mode Switcher Pills (Image vs Video) â”€â”€ */
 .mode-switcher-container {
   display: flex;
   align-items: center;
@@ -703,7 +537,6 @@ body {
   box-shadow: 0 2px 8px rgba(16, 32, 27, 0.08);
 }
 
-/* â”€â”€ Dropzone & Upload â”€â”€ */
 .dropzone {
   border: 2px dashed #BEE9D7;
   background: var(--mint-light);
@@ -721,7 +554,6 @@ body {
 .dropzone:hover, .dropzone.dragover {
   border-color: var(--primary-emerald);
   background: var(--mint-tint);
-  transform: scale(0.995);
 }
 
 .dropzone-icon-circle {
@@ -749,7 +581,6 @@ body {
   font-weight: 500;
 }
 
-/* â”€â”€ Staging Card (After Upload, Before Tuning) â”€â”€ */
 .staging-card {
   display: flex;
   flex-direction: column;
@@ -805,7 +636,6 @@ body {
   gap: 10px;
 }
 
-/* â”€â”€ Primary & Secondary Buttons â”€â”€ */
 .btn-primary-emerald {
   width: 100%;
   height: 56px;
@@ -828,7 +658,6 @@ body {
 .btn-primary-emerald:hover {
   background: var(--primary-emerald-hover);
   transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(10, 107, 82, 0.3);
 }
 
 .btn-secondary-soft {
@@ -854,7 +683,6 @@ body {
   color: var(--primary-emerald);
 }
 
-/* Generic legacy compat classes for main.js */
 .btn {
   font-family: var(--font-family);
   cursor: pointer;
@@ -896,7 +724,6 @@ body {
   background: #E4E8E6;
 }
 
-/* â”€â”€ Model Preset Chips â”€â”€ */
 .preset-chips-row {
   display: flex;
   flex-direction: column;
@@ -942,7 +769,6 @@ body {
   color: #FFFFFF;
 }
 
-/* â”€â”€ Tuner Controls & Sliders â”€â”€ */
 .tuner-container {
   display: flex;
   flex-direction: column;
@@ -1026,7 +852,6 @@ body {
   min-height: 120px;
 }
 
-/* Sliders */
 .tuner-sliders {
   display: flex;
   flex-direction: column;
@@ -1078,11 +903,6 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--primary-emerald);
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(10, 107, 82, 0.3);
-  transition: transform 0.15s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
 }
 
 .tuner-actions {
@@ -1095,55 +915,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-}
-
-/* â”€â”€ Success / Result Screen (Money Sent Style) â”€â”€ */
-.success-screen-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 18px;
-  padding: 10px 0;
-}
-
-.success-icon-rings {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: rgba(216, 250, 122, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 0 16px rgba(216, 250, 122, 0.12);
-  margin: 10px 0;
-}
-
-.success-icon-inner {
-  width: 86px;
-  height: 86px;
-  border-radius: 50%;
-  background: var(--primary-emerald);
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 42px;
-  box-shadow: 0 8px 24px rgba(10, 107, 82, 0.3);
-}
-
-.success-headline {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -0.5px;
-}
-
-.success-subtitle {
-  font-size: 14px;
-  color: var(--muted-text);
-  line-height: 1.5;
-  max-width: 90%;
 }
 
 .receipt-card {
@@ -1184,7 +955,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   font-weight: 700;
 }
 
-/* â”€â”€ Recent Activity / Samples List â”€â”€ */
 .section-header-row {
   display: flex;
   align-items: center;
@@ -1286,7 +1056,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: #FFFFFF;
 }
 
-/* â”€â”€ Deep Green Hero Card (Savings / Showcase screen) â”€â”€ */
 .deep-green-hero-card {
   background: var(--deep-green);
   border-radius: var(--radius-cards);
@@ -1324,7 +1093,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   margin: 4px 0;
 }
 
-/* â”€â”€ Video Progress Bar â”€â”€ */
 .progress-bar-container {
   width: 100%;
   height: 10px;
@@ -1348,12 +1116,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: var(--primary-emerald);
 }
 
-/* â”€â”€ Floating White Bottom Navigation Pill â”€â”€ */
 .floating-bottom-menu {
-  position: absolute;
-  bottom: 22px;
-  left: 18px;
-  right: 18px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 460px;
   height: 66px;
   background: #FFFFFF;
   border-radius: var(--radius-pills);
@@ -1361,9 +1130,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 0 10px;
-  z-index: 99;
-  border: 1px solid rgba(238, 241, 240, 0.85);
+  padding: 0 8px;
+  z-index: 1000;
+  border: 1px solid rgba(238, 241, 240, 0.9);
 }
 
 .bottom-menu-item {
@@ -1391,58 +1160,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: var(--ink);
 }
 
-/* Active tab has a mint pill behind the emerald icon and label! */
 .bottom-menu-item.active {
   background: var(--mint-tint);
   color: var(--primary-emerald);
 }
 
-/* â”€â”€ Board Presentation Grid (From Reference Prompt: 3 screens per row) â”€â”€ */
-.board-presentation-grid {
-  display: none;
-  grid-template-columns: repeat(3, 380px);
-  gap: 40px;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-.app-viewport.board-mode .phone-frame-container {
-  display: none;
-}
-
-.app-viewport.board-mode .board-presentation-grid {
-  display: grid;
-}
-
-.board-screen-card {
-  width: 380px;
-  height: 780px;
-  background: var(--bg-app);
-  border-radius: 40px;
-  box-shadow: var(--shadow-phone-frame);
-  border: 8px solid #FFFFFF;
-  overflow-y: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.board-screen-card::-webkit-scrollbar {
-  display: none;
-}
-
-.board-screen-label {
-  position: absolute;
-  top: -28px;
-  left: 20px;
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--muted-text);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* â”€â”€ Checkerboard for Transparent Canvases â”€â”€ */
 .checker {
   background-color: #ffffff;
   background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
@@ -1453,7 +1175,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
 }
 
-/* â”€â”€ Results Area Specifics â”€â”€ */
 #img-results .card, #video-results .card {
   background: #FFFFFF;
   border-radius: var(--radius-cards);
@@ -1478,7 +1199,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   gap: 12px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 480px) {
   #img-results .grid, #video-results .grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1504,891 +1225,669 @@ input[type="range"]::-webkit-slider-thumb:hover {
   background: var(--deep-green);
 }
 
-/* Hide clutter */
 .ad-slot, .footer-promo-strip {
   display: none !important;
 }
-
   </style>
   <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 
 <body>
 
-  <!-- Top Desktop Presentation Bar -->
-  <div class="desktop-view-bar">
-    <div class="desktop-view-brand">
-      <img src="./assets/logo.webp" alt="Gemini Remover Logo" width="34" height="34" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; display: block;" />
-      <div>
-        <span class="desktop-view-brand-title">Gemini Remover</span>
-      </div>
-      <span class="desktop-view-brand-pill">v2.5 Android Web App</span>
-    </div>
+  <!-- App Main Container (Responsive Mobile Web App) -->
+  <div class="app-container" id="app-container">
 
-    <div class="desktop-view-controls">
-      <button type="button" class="view-mode-btn active" id="btn-view-phone">
-        <iconify-icon icon="ph:device-mobile-camera-bold"></iconify-icon>
-        <span>Phone View</span>
-      </button>
-      <button type="button" class="view-mode-btn" id="btn-view-expanded">
-        <iconify-icon icon="ph:desktop-bold"></iconify-icon>
-        <span>Expanded View</span>
-      </button>
-      <button type="button" class="view-mode-btn" id="btn-view-board">
-        <iconify-icon icon="ph:squares-four-bold"></iconify-icon>
-        <span>6-Screen Board</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- App Viewport Container -->
-  <div class="app-viewport" id="app-viewport">
-
-    <!-- ── Single Phone Frame Shell (Default & Expanded) ── -->
-    <div class="phone-frame-container" id="phone-container">
-
-      <!-- Android Top Status Bar Simulation -->
-      <div class="android-status-bar">
-        <span class="status-bar-time" id="status-clock">9:41</span>
-        <div class="status-bar-icons">
-          <iconify-icon icon="ph:wifi-high-bold"></iconify-icon>
-          <iconify-icon icon="ph:cell-signal-full-bold"></iconify-icon>
-          <iconify-icon icon="ph:battery-charging-vertical-bold"></iconify-icon>
-        </div>
-      </div>
-
-      <!-- Scrollable Screens Wrapper -->
-      <div class="screens-wrapper">
-
-        <!-- ══════════════════════════════════════════
-             SCREEN 1: HOME (Dashboard & Remover Core)
-             ══════════════════════════════════════════ -->
-        <div class="app-screen active" id="screen-home">
-
-          <!-- Header -->
-          <div class="screen-header">
-            <div class="header-user-profile">
-              <div class="profile-avatar-ring">
-                <img src="./assets/logo.webp" alt="App Logo" width="48" height="48" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;" />
-              </div>
-              <div class="header-user-info">
-                <div class="welcome-text">Welcome back</div>
-                <div class="user-name">Ash</div>
-              </div>
-            </div>
-            <button type="button" class="header-bell-btn" title="Notifications" id="btn-notification-bell">
-              <iconify-icon icon="ph:bell-simple-bold" width="20"></iconify-icon>
-              <span class="alert-dot"></span>
-            </button>
-          </div>
-
-          <!-- Total Balance Style Card: Watermark Engine Status -->
-          <div class="balance-card">
-            <div class="balance-title">
-              <span>Engine Status</span>
-              <button type="button" class="balance-eye-btn" title="Toggle info">
-                <iconify-icon icon="ph:eye-bold"></iconify-icon>
-              </button>
-            </div>
-            <div class="balance-amount-row">
-              <span class="balance-amount">100<span class="decimals">.00%</span></span>
-            </div>
-
-            <!-- Mint Account Strip with Dashed Border -->
-            <div class="mint-account-strip">
-              <div class="mint-strip-left">
-                <div class="mint-icon-box">
-                  <iconify-icon icon="ph:sparkle-bold"></iconify-icon>
-                </div>
-                <div class="mint-strip-text">
-                  <div class="strip-subtitle">Local Browser Engine · Private</div>
-                  <div class="strip-title">Alpha Math Inversion</div>
-                </div>
-              </div>
-              <button type="button" class="mint-copy-btn" id="btn-copy-link" title="Copy App Link">
-                <iconify-icon icon="ph:copy-simple-bold"></iconify-icon>
-                <span>Share</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Emerald Gradient Banner -->
-          <div class="emerald-gradient-banner">
-            <div class="banner-content">
-              <div class="banner-headline">Restore in 4K.<br>Zero Inpainting Blur.</div>
-              <button type="button" class="banner-pill-btn" id="btn-banner-guide">
-                <span>Start Unblending</span>
-                <iconify-icon icon="ph:arrow-right-bold" width="12"></iconify-icon>
-              </button>
-            </div>
-            <div class="banner-3d-lime">0%<br><span style="font-size: 20px;">BLUR</span></div>
-          </div>
-
-          <!-- Quick Actions (3 Circles: Image, Video, Tuner) -->
-          <div class="quick-actions-card">
-            <button type="button" class="quick-action-item" id="qa-image">
-              <div class="quick-action-circle">
-                <iconify-icon icon="ph:image-bold"></iconify-icon>
-              </div>
-              <span class="quick-action-label">Image</span>
-            </button>
-            <button type="button" class="quick-action-item" id="qa-video">
-              <div class="quick-action-circle">
-                <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
-              </div>
-              <span class="quick-action-label">Video</span>
-            </button>
-            <button type="button" class="quick-action-item" id="qa-tuner">
-              <div class="quick-action-circle">
-                <iconify-icon icon="ph:sliders-horizontal-bold"></iconify-icon>
-              </div>
-              <span class="quick-action-label">Tuner</span>
-            </button>
-          </div>
-
-          <!-- Mode Switcher Pill Container -->
-          <div class="mode-switcher-container">
-            <button id="tab-image" class="mode-tab-btn active" type="button">
-              <iconify-icon icon="ph:image-bold" width="18"></iconify-icon>
-              <span>Image Remover</span>
-            </button>
-            <button id="tab-video" class="mode-tab-btn" type="button">
-              <iconify-icon icon="ph:video-bold" width="18"></iconify-icon>
-              <span>Video Remover</span>
-            </button>
-          </div>
-
-          <!-- ── Image Remover Operational Panel ── -->
-          <section id="panel-image" class="app-card">
-            <!-- Dropzone -->
-            <div id="img-dropzone" class="dropzone">
-              <div class="dropzone-icon-circle">
-                <iconify-icon icon="ph:upload-simple-bold"></iconify-icon>
-              </div>
-              <p class="dropzone-title">Upload Gemini or Nano Banana Image</p>
-              <p class="dropzone-sub">PNG, JPG, WebP · Runs 100% in browser</p>
-              <input id="img-input" type="file" accept="image/*" class="hidden" />
-            </div>
-
-            <!-- Staging Card (After Upload, Before Tuner) -->
-            <div id="img-staging-card" class="staging-card hidden">
-              <div class="staging-preview-box">
-                <img id="img-staging-preview" src="" alt="Uploaded Gemini Image" />
-              </div>
-              <div class="staging-meta">
-                <p id="img-staging-filename" class="staging-filename"></p>
-                <p id="img-staging-dims" class="staging-dims"></p>
-              </div>
-              <div class="staging-actions">
-                <button id="btn-img-auto-detect" type="button" class="btn-primary-emerald">
-                  <iconify-icon icon="ph:sparkle-bold" width="18"></iconify-icon>
-                  <span>Auto-Detect Watermark</span>
-                </button>
-                <button id="btn-img-change-file" type="button" class="btn-secondary-soft">
-                  <iconify-icon icon="ph:arrows-clockwise" width="16"></iconify-icon>
-                  <span>Change Image</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Tuner & Live Preview Container -->
-            <div id="img-tuner-container" class="tuner-container hidden">
-              <div id="img-detect-badge" class="detect-badge hidden"></div>
-
-              <div class="tuner-preview-row">
-                <div class="tuner-canvas-box">
-                  <span class="canvas-title">
-                    <iconify-icon icon="ph:frame-corners-bold" width="16"></iconify-icon>
-                    Live Full Frame Preview
-                  </span>
-                  <div class="canvas-wrapper checker">
-                    <canvas id="img-main-canvas"></canvas>
-                  </div>
-                </div>
-
-                <div class="zoom-boxes-grid">
-                  <div class="zoom-card">
-                    <span class="canvas-title text-ink">
-                      <iconify-icon icon="ph:magnifying-glass-plus-bold" width="14"></iconify-icon>
-                      Original
-                    </span>
-                    <div class="canvas-wrapper checker">
-                      <canvas id="img-zoom-canvas" width="200" height="200"></canvas>
-                    </div>
-                  </div>
-                  <div class="zoom-card">
-                    <span class="canvas-title text-emerald">
-                      <iconify-icon icon="ph:check-circle-bold" width="14"></iconify-icon>
-                      Cleaned
-                    </span>
-                    <div class="canvas-wrapper checker">
-                      <canvas id="img-zoom-cleaned-canvas" width="200" height="200"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Quick Select Model Presets -->
-              <div class="preset-chips-row">
-                <span class="preset-chips-title">Model Preset</span>
-                <div class="preset-chips-list">
-                  <button type="button" class="btn-preset active" data-preset="new" id="btn-preset-img-nano">
-                    <iconify-icon icon="ph:sparkle-bold"></iconify-icon> Gemini / Nano Banana
-                  </button>
-                  <button type="button" class="btn-preset" data-preset="classic" id="btn-preset-img-classic">
-                    <iconify-icon icon="ph:corners-out-bold"></iconify-icon> Classic Corner
-                  </button>
-                </div>
-              </div>
-
-              <!-- Sliders -->
-              <div class="tuner-sliders">
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Strength (Gain)</span>
-                    <span id="lbl-img-gain">0.60x</span>
-                  </div>
-                  <input type="range" id="slider-img-gain" min="0.1" max="3" step="0.05" value="0.6" />
-                </div>
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Size Scale</span>
-                    <span id="lbl-img-scale">1.00x</span>
-                  </div>
-                  <input type="range" id="slider-img-scale" min="0.5" max="2" step="0.05" value="1.0" />
-                </div>
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Position X</span>
-                    <span id="lbl-img-offset-x">-128px</span>
-                  </div>
-                  <input type="range" id="slider-img-offset-x" min="-250" max="150" step="1" value="-128" />
-                </div>
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Position Y</span>
-                    <span id="lbl-img-offset-y">-128px</span>
-                  </div>
-                  <input type="range" id="slider-img-offset-y" min="-250" max="150" step="1" value="-128" />
-                </div>
-              </div>
-
-              <div class="tuner-actions">
-                <div class="tuner-sub-actions">
-                  <button id="btn-img-change-file-tuner" class="btn-secondary-soft" type="button">
-                    <iconify-icon icon="ph:arrows-clockwise-bold"></iconify-icon> Change File
-                  </button>
-                  <button id="btn-img-reset-sliders" class="btn-secondary-soft" type="button">
-                    <iconify-icon icon="ph:arrow-counter-clockwise-bold"></iconify-icon> Reset
-                  </button>
-                </div>
-                <button id="btn-img-export" class="btn-primary-emerald" type="button">
-                  <iconify-icon icon="ph:eraser-bold" width="18"></iconify-icon>
-                  <span>Remove &amp; Export Lossless Image</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Results Area -->
-            <div id="img-results" class="hidden"></div>
-          </section>
-
-          <!-- ── Video Remover Operational Panel ── -->
-          <section id="panel-video" class="app-card hidden">
-            <div id="video-dropzone" class="dropzone">
-              <div class="dropzone-icon-circle">
-                <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
-              </div>
-              <p class="dropzone-title">Upload Gemini Omni, Flow, or Veo Video</p>
-              <p class="dropzone-sub">MP4, WebM, MOV · Frame-by-frame unblending</p>
-              <input id="video-input" type="file" accept="video/*" class="hidden" />
-            </div>
-
-            <!-- Video Staging Card -->
-            <div id="video-staging-card" class="staging-card hidden">
-              <div class="staging-preview-box">
-                <img id="video-staging-preview" src="" alt="Uploaded Video Preview" />
-              </div>
-              <div class="staging-meta">
-                <p id="video-staging-filename" class="staging-filename"></p>
-                <p id="video-staging-dims" class="staging-dims"></p>
-              </div>
-              <div class="staging-actions">
-                <button id="btn-video-auto-detect" type="button" class="btn-primary-emerald">
-                  <iconify-icon icon="ph:sparkle-bold" width="18"></iconify-icon>
-                  <span>Auto-Detect Video Watermark</span>
-                </button>
-                <button id="btn-video-change-file" type="button" class="btn-secondary-soft">
-                  <iconify-icon icon="ph:arrows-clockwise" width="16"></iconify-icon>
-                  <span>Change Video</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Video Tuner & Live Preview Container -->
-            <div id="video-tuner-container" class="tuner-container hidden">
-              <div id="video-detect-badge" class="detect-badge hidden"></div>
-
-              <div class="tuner-preview-row">
-                <div class="tuner-canvas-box">
-                  <span class="canvas-title">
-                    <iconify-icon icon="ph:frame-corners-bold" width="16"></iconify-icon>
-                    Live Video Frame Preview
-                  </span>
-                  <div class="canvas-wrapper checker">
-                    <canvas id="video-main-canvas"></canvas>
-                  </div>
-                </div>
-
-                <div class="zoom-boxes-grid">
-                  <div class="zoom-card">
-                    <span class="canvas-title text-ink">
-                      <iconify-icon icon="ph:magnifying-glass-plus-bold" width="14"></iconify-icon>
-                      Original
-                    </span>
-                    <div class="canvas-wrapper checker">
-                      <canvas id="video-zoom-canvas" width="200" height="200"></canvas>
-                    </div>
-                  </div>
-                  <div class="zoom-card">
-                    <span class="canvas-title text-emerald">
-                      <iconify-icon icon="ph:check-circle-bold" width="14"></iconify-icon>
-                      Cleaned
-                    </span>
-                    <div class="canvas-wrapper checker">
-                      <canvas id="video-zoom-cleaned-canvas" width="200" height="200"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Model Presets -->
-              <div class="preset-chips-row">
-                <span class="preset-chips-title">Video Model Preset</span>
-                <div class="preset-chips-list">
-                  <button type="button" class="btn-preset active" data-preset="veo" id="btn-preset-vid-omni">
-                    <iconify-icon icon="ph:video-camera-bold"></iconify-icon> Gemini Omni &amp; Flow
-                  </button>
-                  <button type="button" class="btn-preset" data-preset="corner" id="btn-preset-vid-veo">
-                    <iconify-icon icon="ph:corners-out-bold"></iconify-icon> Veo (Corner)
-                  </button>
-                  <button type="button" class="btn-preset" data-preset="sparkle" id="btn-preset-vid-sparkle">
-                    <iconify-icon icon="ph:sparkle-bold"></iconify-icon> Sparkle
-                  </button>
-                </div>
-              </div>
-
-              <!-- Video Sliders -->
-              <div class="tuner-sliders">
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Strength (Gain)</span>
-                    <span id="lbl-video-gain">0.60x</span>
-                  </div>
-                  <input type="range" id="slider-video-gain" min="0.1" max="3" step="0.05" value="0.6" />
-                </div>
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Size Scale</span>
-                    <span id="lbl-video-scale">1.00x</span>
-                  </div>
-                  <input type="range" id="slider-video-scale" min="0.5" max="2" step="0.05" value="1.0" />
-                </div>
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Position X</span>
-                    <span id="lbl-video-offset-x">-24px</span>
-                  </div>
-                  <input type="range" id="slider-video-offset-x" min="-150" max="150" step="1" value="-24" />
-                </div>
-                <div class="slider-group">
-                  <div class="tuner-slider-label">
-                    <span>Position Y</span>
-                    <span id="lbl-video-offset-y">-24px</span>
-                  </div>
-                  <input type="range" id="slider-video-offset-y" min="-150" max="150" step="1" value="-24" />
-                </div>
-              </div>
-
-              <div class="tuner-actions">
-                <div class="tuner-sub-actions">
-                  <button id="btn-video-change-file-tuner" class="btn-secondary-soft" type="button">
-                    <iconify-icon icon="ph:arrows-clockwise-bold"></iconify-icon> Change Video
-                  </button>
-                  <button id="btn-video-reset-sliders" class="btn-secondary-soft" type="button">
-                    <iconify-icon icon="ph:arrow-counter-clockwise-bold"></iconify-icon> Reset
-                  </button>
-                </div>
-                <button id="btn-video-export" class="btn-primary-emerald" type="button">
-                  <iconify-icon icon="ph:eraser-bold" width="18"></iconify-icon>
-                  <span>Remove &amp; Export Video MP4</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Processing Progress -->
-            <div id="video-status" class="hidden text-center" style="padding: 10px 0;">
-              <p class="fw-700 text-ink mb-2">Cleaning &amp; Encoding Video...</p>
-              <div class="progress-bar-container">
-                <div id="video-progress-bar" class="progress-bar-fill"></div>
-              </div>
-              <p id="video-progress-text" class="progress-text">0%</p>
-            </div>
-
-            <div id="video-results" class="hidden"></div>
-          </section>
-
-          <!-- Recent Activity / Samples Strip -->
-          <div class="section-header-row">
-            <span class="section-header-title">Quick Test Samples</span>
-            <span class="section-header-link" id="link-see-all-samples">See all</span>
-          </div>
-
-          <div class="activity-card">
-            <div class="activity-row">
-              <div class="activity-left">
-                <div class="activity-icon-circle">
-                  <iconify-icon icon="ph:image-square-bold"></iconify-icon>
-                </div>
-                <div class="activity-info">
-                  <div class="activity-title">Gemini AI Image</div>
-                  <div class="activity-sub">Nano Banana · 1024×1024</div>
-                </div>
-              </div>
-              <div class="activity-right">
-                <span class="activity-badge-green">+100% Clean</span>
-                <button type="button" class="activity-sample-btn" id="btn-test-sample-1">Try Sample</button>
-              </div>
-            </div>
-
-            <div class="activity-row">
-              <div class="activity-left">
-                <div class="activity-icon-circle">
-                  <iconify-icon icon="ph:sparkle-bold"></iconify-icon>
-                </div>
-                <div class="activity-info">
-                  <div class="activity-title">Sample Watermark 2</div>
-                  <div class="activity-sub">Adaptive Flow Blend</div>
-                </div>
-              </div>
-              <div class="activity-right">
-                <span class="activity-badge-green">Lossless Math</span>
-                <button type="button" class="activity-sample-btn" id="btn-test-sample-2">Try Sample</button>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /#screen-home -->
-
-
-        <!-- ══════════════════════════════════════════
-             SCREEN 2: TUNER & PRESETS VIEW
-             ══════════════════════════════════════════ -->
-        <div class="app-screen" id="screen-tuner">
-          <div class="sub-screen-header">
-            <button type="button" class="sub-header-btn btn-back-home" title="Back">
-              <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
-            </button>
-            <div class="sub-header-title">Live Logo Tuner</div>
-            <button type="button" class="sub-header-btn" title="Help" id="btn-tuner-help">
-              <iconify-icon icon="ph:question-bold"></iconify-icon>
-            </button>
-          </div>
-
-          <!-- Tuner Explanation Card -->
-          <div class="app-card">
-            <div class="mint-account-strip">
-              <div class="mint-strip-left">
-                <div class="mint-icon-box">
-                  <iconify-icon icon="ph:faders-bold"></iconify-icon>
-                </div>
-                <div class="mint-strip-text">
-                  <div class="strip-subtitle">Real-time Unblend Alignment</div>
-                  <div class="strip-title">Pixel-Level Precision</div>
-                </div>
-              </div>
-              <span class="receipt-status-pill">Active</span>
-            </div>
-            <p class="text-muted" style="font-size: 13px; line-height: 1.5;">
-              Upload an image or video in <strong>Home</strong> to enable real-time parameter tweaking. You can adjust Strength, Scale, and Offset coordinates to match any Gemini watermark placement.
-            </p>
-            <button type="button" class="btn-primary-emerald" id="btn-goto-upload-from-tuner">
-              <iconify-icon icon="ph:upload-simple-bold" width="18"></iconify-icon>
-              <span>Upload Media to Tune</span>
-            </button>
-          </div>
-        </div><!-- /#screen-tuner -->
-
-
-        <!-- ══════════════════════════════════════════
-             SCREEN 3: VIDEO UNBLENDER VIEW
-             ══════════════════════════════════════════ -->
-        <div class="app-screen" id="screen-video">
-          <div class="sub-screen-header">
-            <button type="button" class="sub-header-btn btn-back-home" title="Back">
-              <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
-            </button>
-            <div class="sub-header-title">Video Remover</div>
-            <button type="button" class="sub-header-btn" title="Info">
-              <iconify-icon icon="ph:info-bold"></iconify-icon>
-            </button>
-          </div>
-
-          <!-- Video Specs Card -->
-          <div class="app-card">
-            <div class="mint-account-strip">
-              <div class="mint-strip-left">
-                <div class="mint-icon-box">
-                  <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
-                </div>
-                <div class="mint-strip-text">
-                  <div class="strip-subtitle">Veo 3 · Flow · Gemini Omni</div>
-                  <div class="strip-title">High-FPS Hardware Muxer</div>
-                </div>
-              </div>
-              <span class="receipt-status-pill">WebCodecs</span>
-            </div>
-            <p class="text-muted" style="font-size: 13px; line-height: 1.5;">
-              Processes every video frame sequentially via WebCodecs and MediaBunny. Audio tracks are preserved losslessly.
-            </p>
-            <button type="button" class="btn-primary-emerald" id="btn-trigger-video-tab">
-              <iconify-icon icon="ph:play-bold" width="18"></iconify-icon>
-              <span>Open Video Uploader</span>
-            </button>
-          </div>
-        </div><!-- /#screen-video -->
-
-
-        <!-- ══════════════════════════════════════════
-             SCREEN 4: SHOWCASE & SAMPLES VIEW
-             ══════════════════════════════════════════ -->
-        <div class="app-screen" id="screen-samples">
-          <div class="sub-screen-header">
-            <button type="button" class="sub-header-btn btn-back-home" title="Back">
-              <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
-            </button>
-            <div class="sub-header-title">Before &amp; After Proof</div>
-            <button type="button" class="sub-header-btn" title="Share">
-              <iconify-icon icon="ph:share-network-bold"></iconify-icon>
-            </button>
-          </div>
-
-          <!-- Proof Comparison Card -->
-          <div class="app-card">
-            <div class="section-header-title">Gemini AI Watermark Unblend</div>
-            <div class="zoom-boxes-grid" style="margin-top: 4px;">
-              <div class="zoom-card">
-                <span class="canvas-title text-ink">With Watermark</span>
-                <div class="canvas-wrapper">
-                  <img src="./assets/before.webp" alt="Before unblend" style="width:100%; border-radius:10px;" />
-                </div>
-              </div>
-              <div class="zoom-card">
-                <span class="canvas-title text-emerald">100% Cleaned</span>
-                <div class="canvas-wrapper">
-                  <img src="./assets/after.webp" alt="After unblend" style="width:100%; border-radius:10px;" />
-                </div>
-              </div>
-            </div>
-            <button type="button" class="btn-primary-emerald" id="btn-load-sample-from-showcase">
-              <iconify-icon icon="ph:lightning-bold" width="18"></iconify-icon>
-              <span>Test This Sample Now</span>
-            </button>
-          </div>
-        </div><!-- /#screen-samples -->
-
-
-        <!-- ══════════════════════════════════════════
-             SCREEN 5: ABOUT & MATHEMATICAL FORMULA
-             ══════════════════════════════════════════ -->
-        <div class="app-screen" id="screen-about">
-          <div class="sub-screen-header">
-            <button type="button" class="sub-header-btn btn-back-home" title="Back">
-              <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
-            </button>
-            <div class="sub-header-title">How It Works</div>
-            <button type="button" class="sub-header-btn" title="GitHub" id="btn-github-link">
-              <iconify-icon icon="ph:github-logo-bold"></iconify-icon>
-            </button>
-          </div>
-
-          <!-- Deep Green Hero Card -->
-          <div class="deep-green-hero-card">
-            <div class="strip-subtitle" style="color: var(--lime-accent); font-weight: 700;">Mathematical Engine</div>
-            <div style="font-size: 20px; font-weight: 800; line-height: 1.3;">Exact Pixel Inversion.<br>No Generative Hallucination.</div>
-            <div class="hero-math-formula">
-              Original = (Watermarked - Logo × α) / (1 - α)
-            </div>
-            <p style="font-size: 13px; color: #E0EADE; line-height: 1.4;">
-              Because Gemini and Flow watermarks are transparent alpha blends, their underlying pixels are preserved. We subtract the logo with pure arithmetic for true 100% clarity.
-            </p>
-          </div>
-
-          <!-- Privacy Checklist Card -->
-          <div class="app-card">
-            <div class="section-header-title">Privacy &amp; Security</div>
-            <div class="activity-row" style="padding: 10px 0;">
-              <div class="activity-left">
-                <div class="activity-icon-circle" style="color: var(--primary-emerald); background: var(--mint-tint);">
-                  <iconify-icon icon="ph:shield-check-bold"></iconify-icon>
-                </div>
-                <div class="activity-info">
-                  <div class="activity-title">100% Client-Side</div>
-                  <div class="activity-sub">Files never leave your device</div>
-                </div>
-              </div>
-              <span class="receipt-status-pill">Private</span>
-            </div>
-
-            <div class="activity-row" style="padding: 10px 0;">
-              <div class="activity-left">
-                <div class="activity-icon-circle" style="color: var(--primary-emerald); background: var(--mint-tint);">
-                  <iconify-icon icon="ph:infinite-bold"></iconify-icon>
-                </div>
-                <div class="activity-info">
-                  <div class="activity-title">Free &amp; Unlimited</div>
-                  <div class="activity-sub">No quotas, logins, or hidden paywalls</div>
-                </div>
-              </div>
-              <span class="receipt-status-pill">Free</span>
-            </div>
-          </div>
-
-          <!-- Creator Profile Card -->
-          <div class="app-card">
-            <div class="section-header-title">Developer &amp; Creator</div>
-            <div class="activity-row" style="padding: 12px 0;">
-              <div class="activity-left">
-                <div class="profile-avatar-ring" style="width: 52px; height: 52px;">
-                  <img src="https://avatars.githubusercontent.com/u/218390465?v=4" alt="Ash Avatar" />
-                </div>
-                <div class="activity-info">
-                  <div class="activity-title" style="font-size: 16px;">Ash</div>
-                  <div class="activity-sub">Creator · Open Source Developer</div>
-                </div>
-              </div>
-              <span class="receipt-status-pill">GitHub</span>
-            </div>
-            <button type="button" class="btn-primary-emerald" onclick="window.open('https://github.com/Ashy0927', '_blank')" style="height: 48px;">
-              <iconify-icon icon="ph:github-logo-bold" width="18"></iconify-icon>
-              <span>Visit Ash's GitHub</span>
-            </button>
-          </div>
-        </div><!-- /#screen-about -->
-
-      </div><!-- /.screens-wrapper -->
-
+    <!-- Scrollable Screens Wrapper -->
+    <div class="screens-wrapper">
 
       <!-- ══════════════════════════════════════════
-           FLOATING WHITE BOTTOM NAVIGATION PILL
+           SCREEN 1: HOME (Dashboard & Remover Core)
            ══════════════════════════════════════════ -->
-      <nav class="floating-bottom-menu" aria-label="Bottom Navigation">
-        <button type="button" class="bottom-menu-item active" data-target="screen-home" id="nav-item-home">
-          <iconify-icon icon="ph:house-simple-bold"></iconify-icon>
-          <span>Home</span>
-        </button>
-        <button type="button" class="bottom-menu-item" data-target="screen-tuner" id="nav-item-tuner">
-          <iconify-icon icon="ph:sliders-horizontal-bold"></iconify-icon>
-          <span>Tuner</span>
-        </button>
-        <button type="button" class="bottom-menu-item" data-target="screen-video" id="nav-item-video">
-          <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
-          <span>Video</span>
-        </button>
-        <button type="button" class="bottom-menu-item" data-target="screen-samples" id="nav-item-samples">
-          <iconify-icon icon="ph:image-bold"></iconify-icon>
-          <span>Samples</span>
-        </button>
-        <button type="button" class="bottom-menu-item" data-target="screen-about" id="nav-item-about">
-          <iconify-icon icon="ph:user-bold"></iconify-icon>
-          <span>Me</span>
-        </button>
-      </nav>
+      <div class="app-screen active" id="screen-home">
 
-    </div><!-- /#phone-container -->
-
-
-    <!-- ══════════════════════════════════════════
-         BOARD PRESENTATION GRID (3 screens per row)
-         ══════════════════════════════════════════ -->
-    <div class="board-presentation-grid" id="board-grid">
-      <!-- Screen Card 1: Home -->
-      <div class="board-screen-card">
-        <div class="board-screen-label">1. Home Screen</div>
-        <div class="screens-wrapper" style="padding-bottom: 20px;">
-          <!-- Cloned view of Home -->
-          <div class="screen-header">
-            <div class="header-user-profile">
-              <div class="profile-avatar-ring"><img src="./assets/logo.webp" alt="Logo" width="48" height="48" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;" /></div>
-              <div class="header-user-info"><div class="welcome-text">Welcome back</div><div class="user-name">Ash</div></div>
+        <!-- Header -->
+        <div class="screen-header">
+          <div class="header-user-profile">
+            <div class="profile-avatar-ring">
+              <img src="./assets/logo.webp" alt="App Logo" width="48" height="48" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;" />
             </div>
-            <div class="header-bell-btn"><iconify-icon icon="ph:bell-simple-bold" width="20"></iconify-icon><span class="alert-dot"></span></div>
+            <div class="header-user-info">
+              <div class="welcome-text">Welcome back</div>
+              <div class="user-name">Ash</div>
+            </div>
           </div>
-          <div class="balance-card">
-            <div class="balance-title">Engine Status</div>
-            <div class="balance-amount-row"><span class="balance-amount">100<span class="decimals">.00%</span></span></div>
-            <div class="mint-account-strip">
-              <div class="mint-strip-left">
-                <div class="mint-icon-box"><iconify-icon icon="ph:sparkle-bold"></iconify-icon></div>
-                <div class="mint-strip-text"><div class="strip-subtitle">Client-Side Engine</div><div class="strip-title">Alpha Math Inversion</div></div>
+          <button type="button" class="header-bell-btn" title="Notifications" id="btn-notification-bell">
+            <iconify-icon icon="ph:bell-simple-bold" width="20"></iconify-icon>
+            <span class="alert-dot"></span>
+          </button>
+        </div>
+
+        <!-- Engine Status Balance Card -->
+        <div class="balance-card">
+          <div class="balance-title">
+            <span>Engine Status</span>
+            <button type="button" class="balance-eye-btn" title="Toggle info">
+              <iconify-icon icon="ph:eye-bold"></iconify-icon>
+            </button>
+          </div>
+          <div class="balance-amount-row">
+            <span class="balance-amount">100<span class="decimals">.00%</span></span>
+          </div>
+
+          <!-- Mint Account Strip with Dashed Border -->
+          <div class="mint-account-strip">
+            <div class="mint-strip-left">
+              <div class="mint-icon-box">
+                <iconify-icon icon="ph:sparkle-bold"></iconify-icon>
               </div>
-              <span class="receipt-status-pill">Active</span>
+              <div class="mint-strip-text">
+                <div class="strip-subtitle">Local Browser Engine · Private</div>
+                <div class="strip-title">Alpha Math Inversion</div>
+              </div>
             </div>
-          </div>
-          <div class="emerald-gradient-banner">
-            <div class="banner-content"><div class="banner-headline">Restore in 4K.<br>Zero Inpainting Blur.</div><div class="banner-pill-btn">Lossless Math</div></div>
-            <div class="banner-3d-lime">100%</div>
-          </div>
-          <div class="quick-actions-card">
-            <div class="quick-action-item"><div class="quick-action-circle"><iconify-icon icon="ph:image-bold"></iconify-icon></div><span class="quick-action-label">Image</span></div>
-            <div class="quick-action-item"><div class="quick-action-circle"><iconify-icon icon="ph:video-camera-bold"></iconify-icon></div><span class="quick-action-label">Video</span></div>
-            <div class="quick-action-item"><div class="quick-action-circle"><iconify-icon icon="ph:sliders-horizontal-bold"></iconify-icon></div><span class="quick-action-label">Tuner</span></div>
+            <button type="button" class="mint-copy-btn" id="btn-copy-link" title="Copy App Link">
+              <iconify-icon icon="ph:copy-simple-bold"></iconify-icon>
+              <span>Share</span>
+            </button>
           </div>
         </div>
-      </div>
 
-      <!-- Screen Card 2: Send / Process -->
-      <div class="board-screen-card">
-        <div class="board-screen-label">2. Process Media</div>
-        <div class="screens-wrapper" style="padding-bottom: 20px;">
-          <div class="sub-screen-header">
-            <div class="sub-header-btn"><iconify-icon icon="ph:arrow-left-bold"></iconify-icon></div>
-            <div class="sub-header-title">Process Media</div>
-            <div class="sub-header-btn"><iconify-icon icon="ph:question-bold"></iconify-icon></div>
+        <!-- Emerald Gradient Banner -->
+        <div class="emerald-gradient-banner">
+          <div class="banner-content">
+            <div class="banner-headline">Restore in 4K.<br>Zero Inpainting Blur.</div>
+            <button type="button" class="banner-pill-btn" id="btn-banner-guide">
+              <span>Start Unblending</span>
+              <iconify-icon icon="ph:arrow-right-bold" width="12"></iconify-icon>
+            </button>
           </div>
-          <div class="app-card">
-            <div class="dropzone" style="padding: 24px 10px;">
-              <div class="dropzone-icon-circle"><iconify-icon icon="ph:upload-simple-bold"></iconify-icon></div>
-              <p class="dropzone-title">Upload Gemini Image or Video</p>
-              <p class="dropzone-sub">PNG, JPG, WebP, MP4</p>
+          <div class="banner-3d-lime">0%<br><span style="font-size: 20px;">BLUR</span></div>
+        </div>
+
+        <!-- Quick Actions (3 Circles: Image, Video, Tuner) -->
+        <div class="quick-actions-card">
+          <button type="button" class="quick-action-item" id="qa-image">
+            <div class="quick-action-circle">
+              <iconify-icon icon="ph:image-bold"></iconify-icon>
             </div>
+            <span class="quick-action-label">Image</span>
+          </button>
+          <button type="button" class="quick-action-item" id="qa-video">
+            <div class="quick-action-circle">
+              <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
+            </div>
+            <span class="quick-action-label">Video</span>
+          </button>
+          <button type="button" class="quick-action-item" id="qa-tuner">
+            <div class="quick-action-circle">
+              <iconify-icon icon="ph:sliders-horizontal-bold"></iconify-icon>
+            </div>
+            <span class="quick-action-label">Tuner</span>
+          </button>
+        </div>
+
+        <!-- Mode Switcher Pill Container -->
+        <div class="mode-switcher-container">
+          <button id="tab-image" class="mode-tab-btn active" type="button">
+            <iconify-icon icon="ph:image-bold" width="18"></iconify-icon>
+            <span>Image Remover</span>
+          </button>
+          <button id="tab-video" class="mode-tab-btn" type="button">
+            <iconify-icon icon="ph:video-bold" width="18"></iconify-icon>
+            <span>Video Remover</span>
+          </button>
+        </div>
+
+        <!-- ── Image Remover Operational Panel ── -->
+        <section id="panel-image" class="app-card">
+          <!-- Dropzone -->
+          <div id="img-dropzone" class="dropzone">
+            <div class="dropzone-icon-circle">
+              <iconify-icon icon="ph:upload-simple-bold"></iconify-icon>
+            </div>
+            <p class="dropzone-title">Upload Gemini or Nano Banana Image</p>
+            <p class="dropzone-sub">PNG, JPG, WebP · Runs 100% in browser</p>
+            <input id="img-input" type="file" accept="image/*" class="hidden" />
+          </div>
+
+          <!-- Staging Card (After Upload, Before Tuner) -->
+          <div id="img-staging-card" class="staging-card hidden">
+            <div class="staging-preview-box">
+              <img id="img-staging-preview" src="" alt="Uploaded Gemini Image" />
+            </div>
+            <div class="staging-meta">
+              <p id="img-staging-filename" class="staging-filename"></p>
+              <p id="img-staging-dims" class="staging-dims"></p>
+            </div>
+            <div class="staging-actions">
+              <button id="btn-img-auto-detect" type="button" class="btn-primary-emerald">
+                <iconify-icon icon="ph:sparkle-bold" width="18"></iconify-icon>
+                <span>Auto-Detect Watermark</span>
+              </button>
+              <button id="btn-img-change-file" type="button" class="btn-secondary-soft">
+                <iconify-icon icon="ph:arrows-clockwise" width="16"></iconify-icon>
+                <span>Change Image</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tuner & Live Preview Container -->
+          <div id="img-tuner-container" class="tuner-container hidden">
+            <div id="img-detect-badge" class="detect-badge hidden"></div>
+
+            <div class="tuner-preview-row">
+              <div class="tuner-canvas-box">
+                <span class="canvas-title">
+                  <iconify-icon icon="ph:frame-corners-bold" width="16"></iconify-icon>
+                  Live Full Frame Preview
+                </span>
+                <div class="canvas-wrapper checker">
+                  <canvas id="img-main-canvas"></canvas>
+                </div>
+              </div>
+
+              <div class="zoom-boxes-grid">
+                <div class="zoom-card">
+                  <span class="canvas-title text-ink">
+                    <iconify-icon icon="ph:magnifying-glass-plus-bold" width="14"></iconify-icon>
+                    Original
+                  </span>
+                  <div class="canvas-wrapper checker">
+                    <canvas id="img-zoom-canvas" width="200" height="200"></canvas>
+                  </div>
+                </div>
+                <div class="zoom-card">
+                  <span class="canvas-title text-emerald">
+                    <iconify-icon icon="ph:check-circle-bold" width="14"></iconify-icon>
+                    Cleaned
+                  </span>
+                  <div class="canvas-wrapper checker">
+                    <canvas id="img-zoom-cleaned-canvas" width="200" height="200"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Select Model Presets -->
             <div class="preset-chips-row">
               <span class="preset-chips-title">Model Preset</span>
               <div class="preset-chips-list">
-                <span class="btn-preset active">Gemini / Nano Banana</span>
-                <span class="btn-preset">Classic Corner</span>
-                <span class="btn-preset">Gemini Omni</span>
+                <button type="button" class="btn-preset active" data-preset="new" id="btn-preset-img-nano">
+                  <iconify-icon icon="ph:sparkle-bold"></iconify-icon> Gemini / Nano Banana
+                </button>
+                <button type="button" class="btn-preset" data-preset="classic" id="btn-preset-img-classic">
+                  <iconify-icon icon="ph:corners-out-bold"></iconify-icon> Classic Corner
+                </button>
               </div>
             </div>
-            <button type="button" class="btn-primary-emerald">Auto-Detect Watermark</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Screen Card 3: Review / Tuner -->
-      <div class="board-screen-card">
-        <div class="board-screen-label">3. Review &amp; Tune</div>
-        <div class="screens-wrapper" style="padding-bottom: 20px;">
-          <div class="sub-screen-header">
-            <div class="sub-header-btn"><iconify-icon icon="ph:arrow-left-bold"></iconify-icon></div>
-            <div class="sub-header-title">Review &amp; Tune</div>
-            <div class="sub-header-btn"><iconify-icon icon="ph:gear-six-bold"></iconify-icon></div>
-          </div>
-          <div class="app-card">
-            <div class="zoom-boxes-grid">
-              <div class="zoom-card">
-                <span class="canvas-title text-ink">Original</span>
-                <div class="canvas-wrapper"><img src="./assets/before.webp" style="width:100%;" /></div>
-              </div>
-              <div class="zoom-card">
-                <span class="canvas-title text-emerald">Cleaned</span>
-                <div class="canvas-wrapper"><img src="./assets/after.webp" style="width:100%;" /></div>
-              </div>
-            </div>
+            <!-- Sliders -->
             <div class="tuner-sliders">
               <div class="slider-group">
-                <div class="tuner-slider-label"><span>Strength (Gain)</span><span>0.60x</span></div>
-                <input type="range" value="60" />
+                <div class="tuner-slider-label">
+                  <span>Strength (Gain)</span>
+                  <span id="lbl-img-gain">0.60x</span>
+                </div>
+                <input type="range" id="slider-img-gain" min="0.1" max="3" step="0.05" value="0.6" />
               </div>
               <div class="slider-group">
-                <div class="tuner-slider-label"><span>Size Scale</span><span>1.00x</span></div>
-                <input type="range" value="50" />
+                <div class="tuner-slider-label">
+                  <span>Size Scale</span>
+                  <span id="lbl-img-scale">1.00x</span>
+                </div>
+                <input type="range" id="slider-img-scale" min="0.5" max="2" step="0.05" value="1.0" />
+              </div>
+              <div class="slider-group">
+                <div class="tuner-slider-label">
+                  <span>Position X</span>
+                  <span id="lbl-img-offset-x">-128px</span>
+                </div>
+                <input type="range" id="slider-img-offset-x" min="-250" max="150" step="1" value="-128" />
+              </div>
+              <div class="slider-group">
+                <div class="tuner-slider-label">
+                  <span>Position Y</span>
+                  <span id="lbl-img-offset-y">-128px</span>
+                </div>
+                <input type="range" id="slider-img-offset-y" min="-250" max="150" step="1" value="-128" />
               </div>
             </div>
-            <button type="button" class="btn-primary-emerald">Export Lossless Clean Media</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Screen Card 4: Success / Download -->
-      <div class="board-screen-card">
-        <div class="board-screen-label">4. Cleaned Result</div>
-        <div class="screens-wrapper" style="padding-bottom: 20px;">
-          <div class="success-screen-card">
-            <div class="success-icon-rings">
-              <div class="success-icon-inner">
-                <iconify-icon icon="ph:check-bold"></iconify-icon>
+            <div class="tuner-actions">
+              <div class="tuner-sub-actions">
+                <button id="btn-img-change-file-tuner" class="btn-secondary-soft" type="button">
+                  <iconify-icon icon="ph:arrows-clockwise-bold"></iconify-icon> Change File
+                </button>
+                <button id="btn-img-reset-sliders" class="btn-secondary-soft" type="button">
+                  <iconify-icon icon="ph:arrow-counter-clockwise-bold"></iconify-icon> Reset
+                </button>
               </div>
+              <button id="btn-img-export" class="btn-primary-emerald" type="button">
+                <iconify-icon icon="ph:eraser-bold" width="18"></iconify-icon>
+                <span>Remove &amp; Export Lossless Image</span>
+              </button>
             </div>
-            <div class="success-headline">Watermark Cleaned!</div>
-            <p class="success-subtitle">100% original clarity restored mathematically. Zero blurry inpainting.</p>
-            <div class="receipt-card">
-              <div class="receipt-row"><span class="receipt-label">Resolution</span><span class="receipt-val">1024 × 1024 px</span></div>
-              <div class="receipt-row"><span class="receipt-label">Preset</span><span class="receipt-val">Nano Banana (Adaptive)</span></div>
-              <div class="receipt-row"><span class="receipt-label">Engine</span><span class="receipt-val">Pixel Alpha Inversion</span></div>
-              <div class="receipt-row"><span class="receipt-label">Status</span><span class="receipt-status-pill">Completed</span></div>
-            </div>
-            <button type="button" class="btn-primary-emerald">Download Clean File</button>
           </div>
-        </div>
-      </div>
 
-      <!-- Screen Card 5: Video Unblender -->
-      <div class="board-screen-card">
-        <div class="board-screen-label">5. Video Unblender</div>
-        <div class="screens-wrapper" style="padding-bottom: 20px;">
-          <div class="sub-screen-header">
-            <div class="sub-header-btn"><iconify-icon icon="ph:arrow-left-bold"></iconify-icon></div>
-            <div class="sub-header-title">Video Remover</div>
-            <div class="sub-header-btn"><iconify-icon icon="ph:sparkle-bold"></iconify-icon></div>
-          </div>
-          <div class="app-card">
-            <div class="mint-account-strip">
-              <div class="mint-strip-left">
-                <div class="mint-icon-box"><iconify-icon icon="ph:video-camera-bold"></iconify-icon></div>
-                <div class="mint-strip-text"><div class="strip-subtitle">Gemini Omni &amp; Flow</div><div class="strip-title">Hardware Frame Muxing</div></div>
-              </div>
-              <span class="receipt-status-pill">60 FPS</span>
+          <!-- Results Area -->
+          <div id="img-results" class="hidden"></div>
+        </section>
+
+        <!-- ── Video Remover Operational Panel ── -->
+        <section id="panel-video" class="app-card hidden">
+          <div id="video-dropzone" class="dropzone">
+            <div class="dropzone-icon-circle">
+              <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
             </div>
+            <p class="dropzone-title">Upload Gemini Omni, Flow, or Veo Video</p>
+            <p class="dropzone-sub">MP4, WebM, MOV · Frame-by-frame unblending</p>
+            <input id="video-input" type="file" accept="video/*" class="hidden" />
+          </div>
+
+          <!-- Video Staging Card -->
+          <div id="video-staging-card" class="staging-card hidden">
+            <div class="staging-preview-box">
+              <img id="video-staging-preview" src="" alt="Uploaded Video Preview" />
+            </div>
+            <div class="staging-meta">
+              <p id="video-staging-filename" class="staging-filename"></p>
+              <p id="video-staging-dims" class="staging-dims"></p>
+            </div>
+            <div class="staging-actions">
+              <button id="btn-video-auto-detect" type="button" class="btn-primary-emerald">
+                <iconify-icon icon="ph:sparkle-bold" width="18"></iconify-icon>
+                <span>Auto-Detect Video Watermark</span>
+              </button>
+              <button id="btn-video-change-file" type="button" class="btn-secondary-soft">
+                <iconify-icon icon="ph:arrows-clockwise" width="16"></iconify-icon>
+                <span>Change Video</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Tuner & Live Preview Container -->
+          <div id="video-tuner-container" class="tuner-container hidden">
+            <div id="video-detect-badge" class="detect-badge hidden"></div>
+
+            <div class="tuner-preview-row">
+              <div class="tuner-canvas-box">
+                <span class="canvas-title">
+                  <iconify-icon icon="ph:frame-corners-bold" width="16"></iconify-icon>
+                  Live Video Frame Preview
+                </span>
+                <div class="canvas-wrapper checker">
+                  <canvas id="video-main-canvas"></canvas>
+                </div>
+              </div>
+
+              <div class="zoom-boxes-grid">
+                <div class="zoom-card">
+                  <span class="canvas-title text-ink">
+                    <iconify-icon icon="ph:magnifying-glass-plus-bold" width="14"></iconify-icon>
+                    Original
+                  </span>
+                  <div class="canvas-wrapper checker">
+                    <canvas id="video-zoom-canvas" width="200" height="200"></canvas>
+                  </div>
+                </div>
+                <div class="zoom-card">
+                  <span class="canvas-title text-emerald">
+                    <iconify-icon icon="ph:check-circle-bold" width="14"></iconify-icon>
+                    Cleaned
+                  </span>
+                  <div class="canvas-wrapper checker">
+                    <canvas id="video-zoom-cleaned-canvas" width="200" height="200"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Model Presets -->
+            <div class="preset-chips-row">
+              <span class="preset-chips-title">Video Model Preset</span>
+              <div class="preset-chips-list">
+                <button type="button" class="btn-preset active" data-preset="veo" id="btn-preset-vid-omni">
+                  <iconify-icon icon="ph:video-camera-bold"></iconify-icon> Gemini Omni &amp; Flow
+                </button>
+                <button type="button" class="btn-preset" data-preset="corner" id="btn-preset-vid-veo">
+                  <iconify-icon icon="ph:corners-out-bold"></iconify-icon> Veo (Corner)
+                </button>
+                <button type="button" class="btn-preset" data-preset="sparkle" id="btn-preset-vid-sparkle">
+                  <iconify-icon icon="ph:sparkle-bold"></iconify-icon> Sparkle
+                </button>
+              </div>
+            </div>
+
+            <!-- Video Sliders -->
+            <div class="tuner-sliders">
+              <div class="slider-group">
+                <div class="tuner-slider-label">
+                  <span>Strength (Gain)</span>
+                  <span id="lbl-video-gain">0.60x</span>
+                </div>
+                <input type="range" id="slider-video-gain" min="0.1" max="3" step="0.05" value="0.6" />
+              </div>
+              <div class="slider-group">
+                <div class="tuner-slider-label">
+                  <span>Size Scale</span>
+                  <span id="lbl-video-scale">1.00x</span>
+                </div>
+                <input type="range" id="slider-video-scale" min="0.5" max="2" step="0.05" value="1.0" />
+              </div>
+              <div class="slider-group">
+                <div class="tuner-slider-label">
+                  <span>Position X</span>
+                  <span id="lbl-video-offset-x">-24px</span>
+                </div>
+                <input type="range" id="slider-video-offset-x" min="-150" max="150" step="1" value="-24" />
+              </div>
+              <div class="slider-group">
+                <div class="tuner-slider-label">
+                  <span>Position Y</span>
+                  <span id="lbl-video-offset-y">-24px</span>
+                </div>
+                <input type="range" id="slider-video-offset-y" min="-150" max="150" step="1" value="-24" />
+              </div>
+            </div>
+
+            <div class="tuner-actions">
+              <div class="tuner-sub-actions">
+                <button id="btn-video-change-file-tuner" class="btn-secondary-soft" type="button">
+                  <iconify-icon icon="ph:arrows-clockwise-bold"></iconify-icon> Change Video
+                </button>
+                <button id="btn-video-reset-sliders" class="btn-secondary-soft" type="button">
+                  <iconify-icon icon="ph:arrow-counter-clockwise-bold"></iconify-icon> Reset
+                </button>
+              </div>
+              <button id="btn-video-export" class="btn-primary-emerald" type="button">
+                <iconify-icon icon="ph:eraser-bold" width="18"></iconify-icon>
+                <span>Remove &amp; Export Video MP4</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Processing Progress -->
+          <div id="video-status" class="hidden text-center" style="padding: 10px 0;">
+            <p class="fw-700 text-ink mb-2">Cleaning &amp; Encoding Video...</p>
             <div class="progress-bar-container">
-              <div class="progress-bar-fill" style="width: 78%;"></div>
+              <div id="video-progress-bar" class="progress-bar-fill"></div>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700;">
-              <span>Frame 428 / 550</span>
-              <span class="text-emerald">78%</span>
+            <p id="video-progress-text" class="progress-text">0%</p>
+          </div>
+
+          <div id="video-results" class="hidden"></div>
+        </section>
+
+        <!-- Recent Activity / Samples Strip -->
+        <div class="section-header-row">
+          <span class="section-header-title">Quick Test Samples</span>
+          <span class="section-header-link" id="link-see-all-samples">See all</span>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-row">
+            <div class="activity-left">
+              <div class="activity-icon-circle">
+                <iconify-icon icon="ph:image-square-bold"></iconify-icon>
+              </div>
+              <div class="activity-info">
+                <div class="activity-title">Gemini AI Image</div>
+                <div class="activity-sub">Nano Banana · 1024×1024</div>
+              </div>
             </div>
-            <button type="button" class="btn-primary-emerald">Export Video MP4</button>
+            <div class="activity-right">
+              <span class="activity-badge-green">+100% Clean</span>
+              <button type="button" class="activity-sample-btn" id="btn-test-sample-1">Try Sample</button>
+            </div>
+          </div>
+
+          <div class="activity-row">
+            <div class="activity-left">
+              <div class="activity-icon-circle">
+                <iconify-icon icon="ph:sparkle-bold"></iconify-icon>
+              </div>
+              <div class="activity-info">
+                <div class="activity-title">Sample Watermark 2</div>
+                <div class="activity-sub">Adaptive Flow Blend</div>
+              </div>
+            </div>
+            <div class="activity-right">
+              <span class="activity-badge-green">Lossless Math</span>
+              <button type="button" class="activity-sample-btn" id="btn-test-sample-2">Try Sample</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Screen Card 6: Showcase / Math -->
-      <div class="board-screen-card">
-        <div class="board-screen-label">6. Savings &amp; Math</div>
-        <div class="screens-wrapper" style="padding-bottom: 20px;">
-          <div class="sub-screen-header">
-            <div class="sub-header-btn"><iconify-icon icon="ph:arrow-left-bold"></iconify-icon></div>
-            <div class="sub-header-title">Savings &amp; Proof</div>
-            <div class="sub-header-btn"><iconify-icon icon="ph:info-bold"></iconify-icon></div>
+      </div><!-- /#screen-home -->
+
+
+      <!-- ══════════════════════════════════════════
+           SCREEN 2: TUNER & PRESETS VIEW
+           ══════════════════════════════════════════ -->
+      <div class="app-screen" id="screen-tuner">
+        <div class="sub-screen-header">
+          <button type="button" class="sub-header-btn btn-back-home" title="Back">
+            <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
+          </button>
+          <div class="sub-header-title">Live Logo Tuner</div>
+          <button type="button" class="sub-header-btn" title="Help" id="btn-tuner-help">
+            <iconify-icon icon="ph:question-bold"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Tuner Explanation Card -->
+        <div class="app-card">
+          <div class="mint-account-strip">
+            <div class="mint-strip-left">
+              <div class="mint-icon-box">
+                <iconify-icon icon="ph:faders-bold"></iconify-icon>
+              </div>
+              <div class="mint-strip-text">
+                <div class="strip-subtitle">Real-time Unblend Alignment</div>
+                <div class="strip-title">Pixel-Level Precision</div>
+              </div>
+            </div>
+            <span class="receipt-status-pill">Active</span>
           </div>
-          <div class="deep-green-hero-card">
-            <div class="strip-subtitle" style="color: var(--lime-accent); font-weight: 700;">Mathematical Restoration</div>
-            <div style="font-size: 22px; font-weight: 800;">100% Clarity Retained</div>
-            <div class="hero-math-formula">Original = (Watermarked - Logo × α) / (1 - α)</div>
-            <div style="display: flex; gap: 8px;">
-              <span class="receipt-status-pill" style="background: var(--lime-accent); color: var(--deep-green);">Lossless</span>
-              <span class="receipt-status-pill" style="background: rgba(255,255,255,0.15); color: #FFF;">Client-Side</span>
+          <p class="text-muted" style="font-size: 13px; line-height: 1.5;">
+            Upload an image or video in <strong>Home</strong> to enable real-time parameter tweaking. You can adjust Strength, Scale, and Offset coordinates to match any Gemini watermark placement.
+          </p>
+          <button type="button" class="btn-primary-emerald" id="btn-goto-upload-from-tuner">
+            <iconify-icon icon="ph:upload-simple-bold" width="18"></iconify-icon>
+            <span>Upload Media to Tune</span>
+          </button>
+        </div>
+      </div><!-- /#screen-tuner -->
+
+
+      <!-- ══════════════════════════════════════════
+           SCREEN 3: VIDEO UNBLENDER VIEW
+           ══════════════════════════════════════════ -->
+      <div class="app-screen" id="screen-video">
+        <div class="sub-screen-header">
+          <button type="button" class="sub-header-btn btn-back-home" title="Back">
+            <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
+          </button>
+          <div class="sub-header-title">Video Remover</div>
+          <button type="button" class="sub-header-btn" title="Info">
+            <iconify-icon icon="ph:info-bold"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Video Specs Card -->
+        <div class="app-card">
+          <div class="mint-account-strip">
+            <div class="mint-strip-left">
+              <div class="mint-icon-box">
+                <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
+              </div>
+              <div class="mint-strip-text">
+                <div class="strip-subtitle">Veo 3 · Flow · Gemini Omni</div>
+                <div class="strip-title">High-FPS Hardware Muxer</div>
+              </div>
+            </div>
+            <span class="receipt-status-pill">WebCodecs</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; line-height: 1.5;">
+            Processes every video frame sequentially via WebCodecs and MediaBunny. Audio tracks are preserved losslessly.
+          </p>
+          <button type="button" class="btn-primary-emerald" id="btn-trigger-video-tab">
+            <iconify-icon icon="ph:play-bold" width="18"></iconify-icon>
+            <span>Open Video Uploader</span>
+          </button>
+        </div>
+      </div><!-- /#screen-video -->
+
+
+      <!-- ══════════════════════════════════════════
+           SCREEN 4: SHOWCASE & SAMPLES VIEW
+           ══════════════════════════════════════════ -->
+      <div class="app-screen" id="screen-samples">
+        <div class="sub-screen-header">
+          <button type="button" class="sub-header-btn btn-back-home" title="Back">
+            <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
+          </button>
+          <div class="sub-header-title">Before &amp; After Proof</div>
+          <button type="button" class="sub-header-btn" title="Share">
+            <iconify-icon icon="ph:share-network-bold"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Proof Comparison Card -->
+        <div class="app-card">
+          <div class="section-header-title">Gemini AI Watermark Unblend</div>
+          <div class="zoom-boxes-grid" style="margin-top: 4px;">
+            <div class="zoom-card">
+              <span class="canvas-title text-ink">With Watermark</span>
+              <div class="canvas-wrapper">
+                <img src="./assets/before.webp" alt="Before unblend" style="width:100%; border-radius:10px;" />
+              </div>
+            </div>
+            <div class="zoom-card">
+              <span class="canvas-title text-emerald">100% Cleaned</span>
+              <div class="canvas-wrapper">
+                <img src="./assets/after.webp" alt="After unblend" style="width:100%; border-radius:10px;" />
+              </div>
             </div>
           </div>
+          <button type="button" class="btn-primary-emerald" id="btn-load-sample-from-showcase">
+            <iconify-icon icon="ph:lightning-bold" width="18"></iconify-icon>
+            <span>Test This Sample Now</span>
+          </button>
         </div>
-      </div>
-    </div><!-- /#board-grid -->
+      </div><!-- /#screen-samples -->
 
-  </div><!-- /.app-viewport -->
+
+      <!-- ══════════════════════════════════════════
+           SCREEN 5: ABOUT & CREATOR CARD
+           ══════════════════════════════════════════ -->
+      <div class="app-screen" id="screen-about">
+        <div class="sub-screen-header">
+          <button type="button" class="sub-header-btn btn-back-home" title="Back">
+            <iconify-icon icon="ph:arrow-left-bold"></iconify-icon>
+          </button>
+          <div class="sub-header-title">How It Works</div>
+          <button type="button" class="sub-header-btn" title="GitHub" id="btn-github-link">
+            <iconify-icon icon="ph:github-logo-bold"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Deep Green Hero Card -->
+        <div class="deep-green-hero-card">
+          <div class="strip-subtitle" style="color: var(--lime-accent); font-weight: 700;">Mathematical Engine</div>
+          <div style="font-size: 20px; font-weight: 800; line-height: 1.3;">Exact Pixel Inversion.<br>No Generative Hallucination.</div>
+          <div class="hero-math-formula">
+            Original = (Watermarked - Logo × α) / (1 - α)
+          </div>
+          <p style="font-size: 13px; color: #E0EADE; line-height: 1.4;">
+            Because Gemini and Flow watermarks are transparent alpha blends, their underlying pixels are preserved. We subtract the logo with pure arithmetic for true 100% clarity.
+          </p>
+        </div>
+
+        <!-- Privacy Checklist Card -->
+        <div class="app-card">
+          <div class="section-header-title">Privacy &amp; Security</div>
+          <div class="activity-row" style="padding: 10px 0;">
+            <div class="activity-left">
+              <div class="activity-icon-circle" style="color: var(--primary-emerald); background: var(--mint-tint);">
+                <iconify-icon icon="ph:shield-check-bold"></iconify-icon>
+              </div>
+              <div class="activity-info">
+                <div class="activity-title">100% Client-Side</div>
+                <div class="activity-sub">Files never leave your device</div>
+              </div>
+            </div>
+            <span class="receipt-status-pill">Private</span>
+          </div>
+
+          <div class="activity-row" style="padding: 10px 0;">
+            <div class="activity-left">
+              <div class="activity-icon-circle" style="color: var(--primary-emerald); background: var(--mint-tint);">
+                <iconify-icon icon="ph:infinite-bold"></iconify-icon>
+              </div>
+              <div class="activity-info">
+                <div class="activity-title">Free &amp; Unlimited</div>
+                <div class="activity-sub">No quotas, logins, or hidden paywalls</div>
+              </div>
+            </div>
+            <span class="receipt-status-pill">Free</span>
+          </div>
+        </div>
+
+        <!-- Creator Profile Card -->
+        <div class="app-card">
+          <div class="section-header-title">Developer &amp; Creator</div>
+          <div class="activity-row" style="padding: 12px 0;">
+            <div class="activity-left">
+              <div class="profile-avatar-ring" style="width: 52px; height: 52px;">
+                <img src="https://avatars.githubusercontent.com/u/218390465?v=4" alt="Ash Avatar" />
+              </div>
+              <div class="activity-info">
+                <div class="activity-title" style="font-size: 16px;">Ash</div>
+                <div class="activity-sub">Creator · Open Source Developer</div>
+              </div>
+            </div>
+            <span class="receipt-status-pill">GitHub</span>
+          </div>
+          <button type="button" class="btn-primary-emerald" onclick="window.open('https://github.com/Ashy0927', '_blank')" style="height: 48px;">
+            <iconify-icon icon="ph:github-logo-bold" width="18"></iconify-icon>
+            <span>Visit Ash's GitHub</span>
+          </button>
+        </div>
+      </div><!-- /#screen-about -->
+
+    </div><!-- /.screens-wrapper -->
+
+    <!-- ══════════════════════════════════════════
+         FLOATING WHITE BOTTOM NAVIGATION PILL
+         ══════════════════════════════════════════ -->
+    <nav class="floating-bottom-menu" aria-label="Bottom Navigation">
+      <button type="button" class="bottom-menu-item active" data-target="screen-home" id="nav-item-home">
+        <iconify-icon icon="ph:house-simple-bold"></iconify-icon>
+        <span>Home</span>
+      </button>
+      <button type="button" class="bottom-menu-item" data-target="screen-tuner" id="nav-item-tuner">
+        <iconify-icon icon="ph:sliders-horizontal-bold"></iconify-icon>
+        <span>Tuner</span>
+      </button>
+      <button type="button" class="bottom-menu-item" data-target="screen-video" id="nav-item-video">
+        <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
+        <span>Video</span>
+      </button>
+      <button type="button" class="bottom-menu-item" data-target="screen-samples" id="nav-item-samples">
+        <iconify-icon icon="ph:image-bold"></iconify-icon>
+        <span>Samples</span>
+      </button>
+      <button type="button" class="bottom-menu-item" data-target="screen-about" id="nav-item-about">
+        <iconify-icon icon="ph:user-bold"></iconify-icon>
+        <span>Me</span>
+      </button>
+    </nav>
+
+  </div><!-- /.app-container -->
 
   <!-- Star count element for main.js fetchGitHubStars -->
   <span id="star-count-num" class="hidden">--</span>
-  <!-- Hidden mobile menu trigger to prevent null reference -->
   <button id="mobile-menu-btn" class="hidden"></button>
   <div id="header-actions" class="hidden"></div>
 
@@ -2398,42 +1897,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   <!-- Navigation & App UI Controller Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Clock simulation
-      const clockEl = document.getElementById('status-clock');
-      const updateClock = () => {
-        const now = new Date();
-        const hrs = now.getHours();
-        const mins = String(now.getMinutes()).padStart(2, '0');
-        if (clockEl) clockEl.textContent = `${hrs}:${mins}`;
-      };
-      updateClock();
-      setInterval(updateClock, 30000);
-
-      // View Mode Toggles (Phone vs Expanded vs Board)
-      const viewport = document.getElementById('app-viewport');
-      const btnPhone = document.getElementById('btn-view-phone');
-      const btnExpanded = document.getElementById('btn-view-expanded');
-      const btnBoard = document.getElementById('btn-view-board');
-
-      const setViewMode = (mode) => {
-        [btnPhone, btnExpanded, btnBoard].forEach(b => b?.classList.remove('active'));
-        viewport.classList.remove('expanded-mode', 'board-mode');
-
-        if (mode === 'expanded') {
-          btnExpanded?.classList.add('active');
-          viewport.classList.add('expanded-mode');
-        } else if (mode === 'board') {
-          btnBoard?.classList.add('active');
-          viewport.classList.add('board-mode');
-        } else {
-          btnPhone?.classList.add('active');
-        }
-      };
-
-      btnPhone?.addEventListener('click', () => setViewMode('phone'));
-      btnExpanded?.addEventListener('click', () => setViewMode('expanded'));
-      btnBoard?.addEventListener('click', () => setViewMode('board'));
-
       // Bottom Navigation Screen Switching
       const bottomNavItems = document.querySelectorAll('.bottom-menu-item');
       const screens = document.querySelectorAll('.app-screen');
@@ -2450,6 +1913,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
             item.classList.remove('active');
           }
         });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
       bottomNavItems.forEach(item => {
@@ -2567,7 +2031,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
       });
 
       document.getElementById('btn-github-link')?.addEventListener('click', () => {
-        window.open('https://github.com/Ashy0927/gemini-watermark-remover', '_blank');
+        window.open('https://github.com/Ashy0927', '_blank');
       });
     });
   </script>
