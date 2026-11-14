@@ -47,6 +47,11 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
 html {
   font-family: var(--font-family);
   background-color: var(--board-bg);
