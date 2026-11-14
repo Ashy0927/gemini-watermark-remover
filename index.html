@@ -34,16 +34,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=2.8.0" />
+  <link rel="stylesheet" href="./style.css?v=2.9.0" />
   <style>
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   ANDROID MOBILE APP DESIGN SYSTEM FOR GEMINI WATERMARK REMOVER (RESPONSIVE)
+   GEMINI WATERMARK REMOVER - FULLY RESPONSIVE WEB APP DESIGN SYSTEM
+   Automatic Mobile & Desktop Viewport Adaptation (Pure CSS Media Queries)
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Design Tokens from Reference */
+  /* Design Tokens */
   --bg-app: #F4F6F5;
   --bg-card: #FFFFFF;
   --primary-emerald: #0A6B52;
@@ -75,7 +76,7 @@
   --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base Reset */
+/* â”€â”€ Global Reset â”€â”€ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -122,10 +123,9 @@ body {
 .fw-700 { font-weight: 700; }
 .fw-800 { font-weight: 800; }
 
-/* â”€â”€ Responsive App Container (Mobile View) â”€â”€ */
+/* â”€â”€ Responsive App Container (Automatic Mobile / Desktop) â”€â”€ */
 .app-container {
   width: 100%;
-  max-width: 500px;
   min-height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -134,25 +134,60 @@ body {
   background-color: var(--bg-app);
 }
 
-@media (max-width: 520px) {
+/* Mobile Default (< 768px): Full-bleed focused layout */
+@media (max-width: 767px) {
   .app-container {
     max-width: 100%;
   }
+  .screens-wrapper {
+    flex: 1;
+    width: 100%;
+    padding: 18px 16px 105px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-dashboard-row {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
 }
 
-.screens-wrapper {
-  flex: 1;
-  width: 100%;
-  padding: 24px 18px 110px 18px; /* space for floating bottom menu */
-  display: flex;
-  flex-direction: column;
+/* Desktop & Tablet Expansion (>= 768px): Wide Studio Dashboard */
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 1060px;
+    padding: 24px 28px 110px 28px;
+  }
+  .screens-wrapper {
+    flex: 1;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-dashboard-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .balance-card, .emerald-gradient-banner {
+    height: 100%;
+  }
+  .activity-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 }
 
+/* Screen Switcher Animations */
 .app-screen {
   display: none;
   flex-direction: column;
-  gap: 24px; /* Generous spacing 22-28px */
-  animation: fadeInScreen 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 22px;
+  animation: fadeInScreen 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .app-screen.active {
@@ -160,14 +195,8 @@ body {
 }
 
 @keyframes fadeInScreen {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* â”€â”€ Screen Header Component â”€â”€ */
@@ -218,6 +247,32 @@ body {
   letter-spacing: -0.3px;
 }
 
+.header-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-github-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--divider);
+  padding: 8px 14px;
+  border-radius: var(--radius-pills);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.header-github-pill:hover {
+  background: var(--mint-light);
+  color: var(--primary-emerald);
+}
+
 .header-bell-btn {
   width: 44px;
   height: 44px;
@@ -249,7 +304,7 @@ body {
   border: 2px solid #FFFFFF;
 }
 
-/* â”€â”€ Sub-Screen Header (Back + Title + Action) â”€â”€ */
+/* â”€â”€ Sub-Screen Header â”€â”€ */
 .sub-screen-header {
   display: flex;
   align-items: center;
@@ -309,6 +364,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(238, 241, 240, 0.7);
@@ -423,7 +479,7 @@ body {
 .emerald-gradient-banner {
   background: linear-gradient(135deg, var(--deep-green) 0%, var(--primary-emerald) 100%);
   border-radius: var(--radius-cards);
-  padding: 22px 24px;
+  padding: 24px;
   min-height: 108px;
   display: flex;
   align-items: center;
@@ -444,7 +500,7 @@ body {
 }
 
 .banner-headline {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
   color: #FFFFFF;
@@ -479,7 +535,7 @@ body {
   letter-spacing: -1px;
 }
 
-/* â”€â”€ Quick Actions Card (3 Circles) â”€â”€ */
+/* â”€â”€ Quick Actions Card â”€â”€ */
 .quick-actions-card {
   background: var(--bg-card);
   border-radius: var(--radius-cards);
@@ -526,7 +582,7 @@ body {
   color: var(--ink);
 }
 
-/* â”€â”€ Mode Switcher (Image vs Video) â”€â”€ */
+/* â”€â”€ Mode Switcher â”€â”€ */
 .mode-switcher-container {
   display: flex;
   align-items: center;
@@ -661,7 +717,7 @@ body {
   gap: 10px;
 }
 
-/* â”€â”€ Primary & Secondary Buttons (56px tall) â”€â”€ */
+/* â”€â”€ Buttons (56px tall) â”€â”€ */
 .btn-primary-emerald {
   width: 100%;
   height: 56px;
@@ -816,10 +872,22 @@ body {
   gap: 8px;
 }
 
-.tuner-preview-row {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* Desktop Split for Tuner */
+@media (min-width: 768px) {
+  .tuner-preview-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  .tuner-preview-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
 }
 
 .tuner-canvas-box {
@@ -946,45 +1014,6 @@ input[type="range"]::-webkit-slider-thumb {
   gap: 10px;
 }
 
-/* â”€â”€ Result Receipt Card â”€â”€ */
-.receipt-card {
-  width: 100%;
-  background: #FFFFFF;
-  border-radius: var(--radius-cards);
-  border: 1.5px dashed #A5DFC9;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  text-align: left;
-}
-
-.receipt-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-}
-
-.receipt-label {
-  color: var(--muted-text);
-  font-weight: 500;
-}
-
-.receipt-val {
-  font-weight: 700;
-  color: var(--ink);
-}
-
-.receipt-status-pill {
-  background: var(--mint-tint);
-  color: var(--primary-emerald);
-  padding: 4px 10px;
-  border-radius: var(--radius-pills);
-  font-size: 12px;
-  font-weight: 700;
-}
-
 /* â”€â”€ Activity / Samples List â”€â”€ */
 .section-header-row {
   display: flex;
@@ -1010,7 +1039,7 @@ input[type="range"]::-webkit-slider-thumb {
 .activity-card {
   background: #FFFFFF;
   border-radius: var(--radius-cards);
-  padding: 8px 16px;
+  padding: 10px 18px;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--divider);
 }
@@ -1125,6 +1154,15 @@ input[type="range"]::-webkit-slider-thumb {
   margin: 4px 0;
 }
 
+.receipt-status-pill {
+  background: var(--mint-tint);
+  color: var(--primary-emerald);
+  padding: 4px 10px;
+  border-radius: var(--radius-pills);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 /* â”€â”€ Video Progress Bar â”€â”€ */
 .progress-bar-container {
   width: 100%;
@@ -1149,14 +1187,14 @@ input[type="range"]::-webkit-slider-thumb {
   color: var(--primary-emerald);
 }
 
-/* â”€â”€ Floating White Bottom Navigation Pill (Fixed on viewport) â”€â”€ */
+/* â”€â”€ Floating White Bottom Navigation Pill â”€â”€ */
 .floating-bottom-menu {
   position: fixed;
   bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 24px);
-  max-width: 440px;
+  max-width: 460px;
   height: 64px;
   background: #FFFFFF;
   border-radius: var(--radius-pills);
@@ -1203,8 +1241,8 @@ input[type="range"]::-webkit-slider-thumb {
   color: var(--primary-emerald);
 }
 
-/* On mobile / compact screens: show label ONLY on the active tab so it NEVER clips or overflows! */
-@media (max-width: 480px) {
+/* Automatic Adaptation on Mobile: Active pill expands, inactive items show icons only */
+@media (max-width: 520px) {
   .floating-bottom-menu {
     height: 60px;
     padding: 0 6px;
@@ -1229,7 +1267,21 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 
-/* â”€â”€ Checkerboard for Transparent Canvases â”€â”€ */
+/* Automatic Adaptation on Desktop: Full labels for all items */
+@media (min-width: 521px) {
+  .floating-bottom-menu {
+    max-width: 540px;
+    padding: 0 14px;
+  }
+  .bottom-menu-item {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  .bottom-menu-item span {
+    display: inline-block !important;
+  }
+}
+
 .checker {
   background-color: #ffffff;
   background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
@@ -1240,7 +1292,6 @@ input[type="range"]::-webkit-slider-thumb {
   background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
 }
 
-/* â”€â”€ Results Area Specifics â”€â”€ */
 #img-results .card, #video-results .card {
   background: #FFFFFF;
   border-radius: var(--radius-cards);
@@ -1329,6 +1380,7 @@ input[type="range"]::-webkit-slider-thumb {
           </button>
         </div>
 
+        <div class="hero-dashboard-row">
         <!-- Engine Status Balance Card -->
         <div class="balance-card">
           <div class="balance-title">
@@ -1370,6 +1422,7 @@ input[type="range"]::-webkit-slider-thumb {
           </div>
           <div class="banner-3d-lime">0%<br><span style="font-size: 20px;">BLUR</span></div>
         </div>
+        </div><!-- /.hero-dashboard-row -->
 
         <!-- Quick Actions (3 Circles: Image, Video, Tuner) -->
         <div class="quick-actions-card">

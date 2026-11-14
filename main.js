@@ -2069,29 +2069,7 @@ function initVideoRemover() {
 
 // ── Results Screen Promo Card Generator ──
 function getPromoCardHtml(type = 'image') {
-  return `
-    <div class="results-promo-banner">
-      <div class="results-promo-badge-row">
-        <span class="results-promo-tag">
-          Created by Ash
-        </span>
-        <span class="badge-featured">Open Source</span>
-      </div>
-      <div class="results-promo-body">
-        <div class="results-promo-icon-box">
-          <iconify-icon icon="ph:github-logo-bold" width="26" height="26"></iconify-icon>
-        </div>
-        <div class="results-promo-info">
-          <h4 class="results-promo-title">Follow Ash on GitHub</h4>
-          <p class="results-promo-desc">Check out more open-source web tools, AI utilities, and apps on Ash's GitHub profile.</p>
-        </div>
-        <a href="https://github.com/Ashy0927" target="_blank" rel="noopener noreferrer" class="results-promo-btn">
-          <span>View GitHub</span>
-          <iconify-icon icon="ph:arrow-square-out-bold" width="16"></iconify-icon>
-        </a>
-      </div>
-    </div>
-  `;
+  return '';
 }
 
 // ── GitHub Star Count Fetcher ──
