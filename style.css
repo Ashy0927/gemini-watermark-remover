@@ -1307,3 +1307,335 @@ input[type="range"]::-webkit-slider-thumb {
 .ad-slot, .footer-promo-strip {
   display: none !important;
 }
+
+/* ══════════════════════════════════════════
+   OWNER PORTAL & USAGE METRICS DASHBOARD
+   ══════════════════════════════════════════ */
+.owner-section-divider {
+  height: 1px;
+  background: var(--divider);
+  margin: 18px 0 14px;
+}
+
+.owner-portal-wrap {
+  width: 100%;
+}
+
+.owner-locked-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.owner-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FAFBFB;
+  border: 1px solid #DFE6E2;
+  border-radius: var(--radius-buttons-sm);
+  padding: 4px 6px 4px 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.owner-input-group:focus-within {
+  border-color: var(--primary-emerald);
+  box-shadow: 0 0 0 3px rgba(10, 107, 82, 0.1);
+}
+
+.owner-input-icon {
+  display: flex;
+  align-items: center;
+  color: var(--muted-text);
+  font-size: 16px;
+}
+
+.owner-passcode-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+  min-width: 0;
+}
+
+.owner-passcode-input::placeholder {
+  color: #8F9E98;
+}
+
+.btn-owner-unlock {
+  border: none;
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-owner-unlock:hover {
+  background: var(--primary-emerald-hover);
+}
+
+.btn-owner-unlock:active {
+  transform: scale(0.97);
+}
+
+.owner-passcode-error {
+  font-size: 11px;
+  color: #D32F2F;
+  font-weight: 600;
+  padding-left: 4px;
+}
+
+/* Unlocked Panel */
+.owner-unlocked-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.owner-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.owner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--mint-tint);
+  color: var(--primary-emerald);
+  padding: 5px 12px;
+  border-radius: var(--radius-pills);
+}
+
+.btn-owner-lock-action {
+  border: 1px solid #DFE6E2;
+  background: #FAFBFB;
+  color: var(--muted-text);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.15s ease;
+}
+
+.btn-owner-lock-action:hover {
+  background: #EEF1F0;
+  color: var(--ink);
+}
+
+.owner-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.owner-stat-card {
+  background: #FAFBFB;
+  border: 1px solid #E6ECE8;
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.owner-stat-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.owner-stat-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.owner-stat-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted-text);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.owner-actions-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-owner-action {
+  flex: 1;
+  min-width: 100px;
+  height: 36px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-owner-action:hover {
+  background: var(--primary-emerald-hover);
+}
+
+.btn-owner-action.secondary {
+  flex: 0 0 auto;
+  min-width: 36px;
+  background: #FAFBFB;
+  color: var(--ink);
+  border: 1px solid #DFE6E2;
+}
+
+.btn-owner-action.secondary:hover {
+  background: #EEF1F0;
+}
+
+.owner-logs-container {
+  border-top: 1px solid var(--divider);
+  padding-top: 10px;
+}
+
+.owner-logs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.owner-logs-head-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.btn-toggle-raw {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary-emerald);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.owner-events-list {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 2px;
+}
+
+.owner-event-item {
+  background: #FAFBFB;
+  border: 1px solid #E6ECE8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.event-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.event-item-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.event-item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.event-item-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-item-sub {
+  font-size: 10px;
+  color: var(--muted-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-item-time {
+  font-size: 10px;
+  color: #8F9E98;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.owner-raw-json-viewer {
+  max-height: 180px;
+  overflow: auto;
+  background: #10201B;
+  color: #A7F3D0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}

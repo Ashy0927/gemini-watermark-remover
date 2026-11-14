@@ -79,7 +79,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=2.9.0" />
+  <link rel="stylesheet" href="./style.css?v=3.0.0" />
   <style>
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    GEMINI WATERMARK REMOVER - FULLY RESPONSIVE WEB APP DESIGN SYSTEM
@@ -1391,6 +1391,338 @@ input[type="range"]::-webkit-slider-thumb {
   display: none !important;
 }
 
+/* ══════════════════════════════════════════
+   OWNER PORTAL & USAGE METRICS DASHBOARD
+   ══════════════════════════════════════════ */
+.owner-section-divider {
+  height: 1px;
+  background: var(--divider);
+  margin: 18px 0 14px;
+}
+
+.owner-portal-wrap {
+  width: 100%;
+}
+
+.owner-locked-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.owner-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FAFBFB;
+  border: 1px solid #DFE6E2;
+  border-radius: var(--radius-buttons-sm);
+  padding: 4px 6px 4px 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.owner-input-group:focus-within {
+  border-color: var(--primary-emerald);
+  box-shadow: 0 0 0 3px rgba(10, 107, 82, 0.1);
+}
+
+.owner-input-icon {
+  display: flex;
+  align-items: center;
+  color: var(--muted-text);
+  font-size: 16px;
+}
+
+.owner-passcode-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+  min-width: 0;
+}
+
+.owner-passcode-input::placeholder {
+  color: #8F9E98;
+}
+
+.btn-owner-unlock {
+  border: none;
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-owner-unlock:hover {
+  background: var(--primary-emerald-hover);
+}
+
+.btn-owner-unlock:active {
+  transform: scale(0.97);
+}
+
+.owner-passcode-error {
+  font-size: 11px;
+  color: #D32F2F;
+  font-weight: 600;
+  padding-left: 4px;
+}
+
+/* Unlocked Panel */
+.owner-unlocked-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.owner-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.owner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--mint-tint);
+  color: var(--primary-emerald);
+  padding: 5px 12px;
+  border-radius: var(--radius-pills);
+}
+
+.btn-owner-lock-action {
+  border: 1px solid #DFE6E2;
+  background: #FAFBFB;
+  color: var(--muted-text);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.15s ease;
+}
+
+.btn-owner-lock-action:hover {
+  background: #EEF1F0;
+  color: var(--ink);
+}
+
+.owner-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.owner-stat-card {
+  background: #FAFBFB;
+  border: 1px solid #E6ECE8;
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.owner-stat-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.owner-stat-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.owner-stat-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted-text);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.owner-actions-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-owner-action {
+  flex: 1;
+  min-width: 100px;
+  height: 36px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-owner-action:hover {
+  background: var(--primary-emerald-hover);
+}
+
+.btn-owner-action.secondary {
+  flex: 0 0 auto;
+  min-width: 36px;
+  background: #FAFBFB;
+  color: var(--ink);
+  border: 1px solid #DFE6E2;
+}
+
+.btn-owner-action.secondary:hover {
+  background: #EEF1F0;
+}
+
+.owner-logs-container {
+  border-top: 1px solid var(--divider);
+  padding-top: 10px;
+}
+
+.owner-logs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.owner-logs-head-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.btn-toggle-raw {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary-emerald);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.owner-events-list {
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 2px;
+}
+
+.owner-event-item {
+  background: #FAFBFB;
+  border: 1px solid #E6ECE8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.event-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.event-item-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.event-item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.event-item-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-item-sub {
+  font-size: 10px;
+  color: var(--muted-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-item-time {
+  font-size: 10px;
+  color: #8F9E98;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.owner-raw-json-viewer {
+  max-height: 180px;
+  overflow: auto;
+  background: #10201B;
+  color: #A7F3D0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
   </style>
   <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
@@ -2018,6 +2350,99 @@ input[type="range"]::-webkit-slider-thumb {
             <iconify-icon icon="ph:github-logo-bold" width="18"></iconify-icon>
             <span>Visit Ash's GitHub</span>
           </button>
+
+          <!-- Subtle Owner Access Portal (Passcode: ash0927) -->
+          <div class="owner-section-divider"></div>
+          <div class="owner-portal-wrap" id="owner-portal-container">
+            <!-- Locked State: Small & Discreet -->
+            <div id="owner-locked-view" class="owner-locked-box">
+              <div class="owner-input-group">
+                <div class="owner-input-icon">
+                  <iconify-icon icon="ph:lock-key-bold"></iconify-icon>
+                </div>
+                <input type="password" id="owner-passcode-input" class="owner-passcode-input" placeholder="Owner passcode" autocomplete="off" />
+                <button type="button" id="btn-owner-unlock" class="btn-owner-unlock">
+                  <iconify-icon icon="ph:key-bold" width="13"></iconify-icon>
+                  <span>Unlock</span>
+                </button>
+              </div>
+              <div id="owner-passcode-error" class="owner-passcode-error hidden">Incorrect passcode</div>
+            </div>
+
+            <!-- Unlocked State: Owner Metrics & Events Array Log -->
+            <div id="owner-unlocked-panel" class="owner-unlocked-panel hidden">
+              <div class="owner-panel-header">
+                <div class="owner-badge">
+                  <iconify-icon icon="ph:shield-check-bold" style="color: var(--primary-emerald); font-size: 15px;"></iconify-icon>
+                  <span>Ash · Owner Verified</span>
+                </div>
+                <button type="button" id="btn-owner-lock" class="btn-owner-lock-action" title="Lock Portal">
+                  <iconify-icon icon="ph:lock-simple-bold"></iconify-icon>
+                  <span>Lock</span>
+                </button>
+              </div>
+
+              <!-- Metrics Stats Grid -->
+              <div class="owner-stats-grid">
+                <div class="owner-stat-card">
+                  <div class="owner-stat-icon" style="background: rgba(10, 107, 82, 0.12); color: var(--primary-emerald);">
+                    <iconify-icon icon="ph:users-bold"></iconify-icon>
+                  </div>
+                  <div class="owner-stat-val" id="metric-total-visits">0</div>
+                  <div class="owner-stat-lbl">Site Visits</div>
+                </div>
+                <div class="owner-stat-card">
+                  <div class="owner-stat-icon" style="background: rgba(43, 147, 72, 0.12); color: #2B9348;">
+                    <iconify-icon icon="ph:image-bold"></iconify-icon>
+                  </div>
+                  <div class="owner-stat-val" id="metric-images-cleaned">0</div>
+                  <div class="owner-stat-lbl">Images Cleaned</div>
+                </div>
+                <div class="owner-stat-card">
+                  <div class="owner-stat-icon" style="background: rgba(0, 119, 182, 0.12); color: #0077B6;">
+                    <iconify-icon icon="ph:video-camera-bold"></iconify-icon>
+                  </div>
+                  <div class="owner-stat-val" id="metric-videos-cleaned">0</div>
+                  <div class="owner-stat-lbl">Videos Cleaned</div>
+                </div>
+                <div class="owner-stat-card">
+                  <div class="owner-stat-icon" style="background: rgba(232, 87, 42, 0.12); color: #E8572A;">
+                    <iconify-icon icon="ph:lightning-bold"></iconify-icon>
+                  </div>
+                  <div class="owner-stat-val" id="metric-total-ops">0</div>
+                  <div class="owner-stat-lbl">Total Usages</div>
+                </div>
+              </div>
+
+              <!-- Actions: Export JSON Array & Copy -->
+              <div class="owner-actions-row">
+                <button type="button" id="btn-export-metrics-json" class="btn-owner-action">
+                  <iconify-icon icon="ph:download-simple-bold" width="14"></iconify-icon>
+                  <span>Export JSON (Array)</span>
+                </button>
+                <button type="button" id="btn-copy-metrics-json" class="btn-owner-action secondary" title="Copy Raw JSON Array">
+                  <iconify-icon icon="ph:copy-bold" width="14"></iconify-icon>
+                  <span id="copy-btn-text">Copy Array</span>
+                </button>
+                <button type="button" id="btn-refresh-metrics" class="btn-owner-action secondary" title="Refresh Live Numbers">
+                  <iconify-icon icon="ph:arrows-clockwise-bold" width="14"></iconify-icon>
+                </button>
+              </div>
+
+              <!-- Live Activity Events Array List -->
+              <div class="owner-logs-container">
+                <div class="owner-logs-head">
+                  <span class="owner-logs-head-title">Activity Events Log (<span id="metric-events-count">0</span>)</span>
+                  <button type="button" id="btn-toggle-raw-json" class="btn-toggle-raw">View Raw Array</button>
+                </div>
+                <div id="owner-events-list" class="owner-events-list">
+                  <!-- Dynamically populated events -->
+                </div>
+                <!-- Collapsible Raw JSON viewer -->
+                <pre id="owner-raw-json-viewer" class="owner-raw-json-viewer hidden"></pre>
+              </div>
+            </div>
+          </div>
         </div>
       </div><!-- /#screen-about -->
 
@@ -2056,8 +2481,107 @@ input[type="range"]::-webkit-slider-thumb {
   <button id="mobile-menu-btn" class="hidden"></button>
   <div id="header-actions" class="hidden"></div>
 
+  <!-- Usage Metrics Tracker & Owner Access Engine -->
+  <script>
+    const METRICS_STORAGE_KEY = 'gemini_remover_metrics_v1';
+    const OWNER_PASSCODE = 'ash0927';
+
+    function loadMetricsData() {
+      try {
+        const raw = localStorage.getItem(METRICS_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.events)) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.warn('Metrics parse warning:', e);
+      }
+      return {
+        summary: {
+          totalVisits: 0,
+          uniqueVisitors: 0,
+          imagesCleaned: 0,
+          videosCleaned: 0,
+          samplesTested: 0,
+          totalOperations: 0,
+          firstSeen: new Date().toISOString(),
+          lastActive: new Date().toISOString()
+        },
+        events: []
+      };
+    }
+
+    function saveMetricsData(data) {
+      try {
+        if (data.events.length > 150) {
+          data.events = data.events.slice(0, 150);
+        }
+        localStorage.setItem(METRICS_STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {
+        console.warn('Metrics save error:', e);
+      }
+    }
+
+    window.trackUsageEvent = function(eventType, details = {}) {
+      const data = loadMetricsData();
+      const now = new Date();
+
+      if (eventType === 'Page Visit') {
+        data.summary.totalVisits = (data.summary.totalVisits || 0) + 1;
+      } else if (eventType === 'Image Cleaned') {
+        data.summary.imagesCleaned = (data.summary.imagesCleaned || 0) + 1;
+        data.summary.totalOperations = (data.summary.totalOperations || 0) + 1;
+      } else if (eventType === 'Video Cleaned') {
+        data.summary.videosCleaned = (data.summary.videosCleaned || 0) + 1;
+        data.summary.totalOperations = (data.summary.totalOperations || 0) + 1;
+      } else if (eventType === 'Sample Tested') {
+        data.summary.samplesTested = (data.summary.samplesTested || 0) + 1;
+        data.summary.totalOperations = (data.summary.totalOperations || 0) + 1;
+      }
+      data.summary.lastActive = now.toISOString();
+
+      const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      const eventItem = {
+        id: 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+        type: eventType,
+        timestamp: now.toISOString(),
+        timeStr: now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
+        device: isMobile ? 'Mobile' : 'Desktop',
+        details: details
+      };
+
+      data.events.unshift(eventItem); // Newest event first
+      saveMetricsData(data);
+
+      if (typeof window.refreshOwnerDashboardUI === 'function') {
+        window.refreshOwnerDashboardUI();
+      }
+    };
+
+    // Track session visit once per browser session
+    try {
+      if (!sessionStorage.getItem('gemini_session_seen')) {
+        sessionStorage.setItem('gemini_session_seen', 'true');
+        const isFirstEver = !localStorage.getItem('gemini_returning_user');
+        if (isFirstEver) {
+          localStorage.setItem('gemini_returning_user', 'true');
+          const d = loadMetricsData();
+          d.summary.uniqueVisitors = (d.summary.uniqueVisitors || 0) + 1;
+          saveMetricsData(d);
+        }
+        window.trackUsageEvent('Page Visit', {
+          referrer: document.referrer || 'Direct Visit',
+          screen: `${window.innerWidth}×${window.innerHeight}`,
+          url: window.location.pathname
+        });
+      }
+    } catch (e) {}
+  </script>
+
   <!-- Main Engine Script -->
-  <script src="./main.js"></script>
+  <script src="./main.js?v=3.0.0"></script>
 
   <!-- Navigation & App UI Controller Script -->
   <script>
@@ -2178,6 +2702,9 @@ input[type="range"]::-webkit-slider-thumb {
             fileInput.files = dt.files;
             fileInput.dispatchEvent(new Event('change', { bubbles: true }));
           }
+          if (typeof window.trackUsageEvent === 'function') {
+            window.trackUsageEvent('Sample Tested', { sample: filename });
+          }
         } catch (err) {
           console.error('Failed to load sample image:', err);
         }
@@ -2197,6 +2724,185 @@ input[type="range"]::-webkit-slider-thumb {
 
       document.getElementById('btn-github-link')?.addEventListener('click', () => {
         window.open('https://github.com/Ashy0927', '_blank');
+      });
+
+      // ══════════════════════════════════════════
+      // OWNER METRICS DASHBOARD UI CONTROLLER
+      // Passcode: ash0927
+      // ══════════════════════════════════════════
+      const passInput = document.getElementById('owner-passcode-input');
+      const btnUnlock = document.getElementById('btn-owner-unlock');
+      const btnLock = document.getElementById('btn-owner-lock');
+      const lockedView = document.getElementById('owner-locked-view');
+      const unlockedPanel = document.getElementById('owner-unlocked-panel');
+      const passError = document.getElementById('owner-passcode-error');
+
+      const renderOwnerDashboard = () => {
+        const data = loadMetricsData();
+
+        const elVisits = document.getElementById('metric-total-visits');
+        const elImages = document.getElementById('metric-images-cleaned');
+        const elVideos = document.getElementById('metric-videos-cleaned');
+        const elOps = document.getElementById('metric-total-ops');
+        const elCount = document.getElementById('metric-events-count');
+        const elList = document.getElementById('owner-events-list');
+        const elRaw = document.getElementById('owner-raw-json-viewer');
+
+        if (elVisits) elVisits.textContent = data.summary.totalVisits || 0;
+        if (elImages) elImages.textContent = data.summary.imagesCleaned || 0;
+        if (elVideos) elVideos.textContent = data.summary.videosCleaned || 0;
+        if (elOps) elOps.textContent = data.summary.totalOperations || 0;
+        if (elCount) elCount.textContent = data.events.length;
+
+        if (elRaw) {
+          elRaw.textContent = JSON.stringify(data.events, null, 2);
+        }
+
+        if (elList) {
+          if (!data.events || data.events.length === 0) {
+            elList.innerHTML = `<div style="text-align:center; padding: 16px; font-size: 12px; color: var(--muted-text);">No activity recorded yet.</div>`;
+          } else {
+            elList.innerHTML = data.events.map(ev => {
+              let icon = 'ph:activity-bold';
+              let iconBg = 'rgba(10, 107, 82, 0.12)';
+              let iconColor = 'var(--primary-emerald)';
+              let detailsText = '';
+
+              if (ev.type === 'Page Visit') {
+                icon = 'ph:users-bold';
+                iconBg = 'rgba(10, 107, 82, 0.12)';
+                iconColor = 'var(--primary-emerald)';
+                detailsText = `${ev.device} · ${ev.details?.referrer || 'Direct'} · ${ev.details?.screen || ''}`;
+              } else if (ev.type === 'Image Cleaned') {
+                icon = 'ph:image-bold';
+                iconBg = 'rgba(43, 147, 72, 0.12)';
+                iconColor = '#2B9348';
+                detailsText = `${ev.details?.filename || 'Image'} (${ev.details?.dimensions || ''}${ev.details?.fileSize ? ', ' + ev.details.fileSize : ''})`;
+              } else if (ev.type === 'Video Cleaned') {
+                icon = 'ph:video-camera-bold';
+                iconBg = 'rgba(0, 119, 182, 0.12)';
+                iconColor = '#0077B6';
+                detailsText = `${ev.details?.filename || 'Video'} (${ev.details?.fileSize || ''})`;
+              } else if (ev.type === 'Sample Tested') {
+                icon = 'ph:flask-bold';
+                iconBg = 'rgba(232, 87, 42, 0.12)';
+                iconColor = '#E8572A';
+                detailsText = `Sample: ${ev.details?.sample || 'Test sample'}`;
+              } else {
+                detailsText = JSON.stringify(ev.details || {});
+              }
+
+              return `
+                <div class="owner-event-item">
+                  <div class="event-item-left">
+                    <div class="event-item-icon" style="background: ${iconBg}; color: ${iconColor};">
+                      <iconify-icon icon="${icon}"></iconify-icon>
+                    </div>
+                    <div class="event-item-info">
+                      <div class="event-item-title">${ev.type}</div>
+                      <div class="event-item-sub" title="${detailsText}">${detailsText}</div>
+                    </div>
+                  </div>
+                  <div class="event-item-time">${ev.timeStr || ''}</div>
+                </div>
+              `;
+            }).join('');
+          }
+        }
+      };
+
+      window.refreshOwnerDashboardUI = () => {
+        if (unlockedPanel && !unlockedPanel.classList.contains('hidden')) {
+          renderOwnerDashboard();
+        }
+      };
+
+      const unlockOwnerPortal = () => {
+        const inputVal = (passInput?.value || '').trim();
+        if (inputVal === OWNER_PASSCODE) {
+          lockedView?.classList.add('hidden');
+          unlockedPanel?.classList.remove('hidden');
+          passError?.classList.add('hidden');
+          sessionStorage.setItem('gemini_owner_auth', 'ash0927');
+          renderOwnerDashboard();
+        } else {
+          passError?.classList.remove('hidden');
+          passInput?.focus();
+        }
+      };
+
+      btnUnlock?.addEventListener('click', unlockOwnerPortal);
+      passInput?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') unlockOwnerPortal();
+      });
+
+      btnLock?.addEventListener('click', () => {
+        sessionStorage.removeItem('gemini_owner_auth');
+        unlockedPanel?.classList.add('hidden');
+        lockedView?.classList.remove('hidden');
+        if (passInput) passInput.value = '';
+        passError?.classList.add('hidden');
+      });
+
+      // Check if session already authenticated
+      if (sessionStorage.getItem('gemini_owner_auth') === 'ash0927') {
+        lockedView?.classList.add('hidden');
+        unlockedPanel?.classList.remove('hidden');
+        renderOwnerDashboard();
+      }
+
+      // Export JSON Array Download
+      document.getElementById('btn-export-metrics-json')?.addEventListener('click', () => {
+        const data = loadMetricsData();
+        const exportObj = {
+          owner: 'Ash',
+          exportedAt: new Date().toISOString(),
+          summary: data.summary,
+          events: data.events
+        };
+        const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `gemini_remover_metrics_${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      // Copy Raw JSON Array to Clipboard
+      document.getElementById('btn-copy-metrics-json')?.addEventListener('click', async () => {
+        const data = loadMetricsData();
+        const jsonStr = JSON.stringify(data.events, null, 2);
+        try {
+          await navigator.clipboard.writeText(jsonStr);
+          const copyBtnText = document.getElementById('copy-btn-text');
+          if (copyBtnText) {
+            const old = copyBtnText.textContent;
+            copyBtnText.textContent = 'Copied!';
+            setTimeout(() => { copyBtnText.textContent = old; }, 2000);
+          }
+        } catch {
+          alert('Could not copy automatically. You can copy from the "View Raw Array" viewer.');
+        }
+      });
+
+      // Toggle Raw Array Viewer
+      document.getElementById('btn-toggle-raw-json')?.addEventListener('click', () => {
+        const rawViewer = document.getElementById('owner-raw-json-viewer');
+        const btnToggle = document.getElementById('btn-toggle-raw-json');
+        if (rawViewer) {
+          rawViewer.classList.toggle('hidden');
+          if (btnToggle) {
+            btnToggle.textContent = rawViewer.classList.contains('hidden') ? 'View Raw Array' : 'Hide Raw Array';
+          }
+        }
+      });
+
+      // Refresh button
+      document.getElementById('btn-refresh-metrics')?.addEventListener('click', () => {
+        renderOwnerDashboard();
       });
     });
   </script>

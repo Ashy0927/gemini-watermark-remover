@@ -1475,6 +1475,15 @@ function initImageRemover() {
       const originalUrl = URL.createObjectURL(currentFile);
       const url = URL.createObjectURL(blob);
 
+      // Track usage event
+      if (typeof window.trackUsageEvent === 'function') {
+        window.trackUsageEvent('Image Cleaned', {
+          filename: currentFile.name || 'image.png',
+          dimensions: `${width}×${height}`,
+          fileSize: currentFile.size ? (currentFile.size / 1024).toFixed(1) + ' KB' : 'Unknown'
+        });
+      }
+
       resultsArea.classList.remove('hidden');
       resultsArea.innerHTML = `
         <div class="card">
@@ -2027,6 +2036,14 @@ function initVideoRemover() {
 
       statusContainer.classList.add('hidden');
       resultsArea.classList.remove('hidden');
+
+      // Track usage event
+      if (typeof window.trackUsageEvent === 'function') {
+        window.trackUsageEvent('Video Cleaned', {
+          filename: currentFile.name || 'video.mp4',
+          fileSize: currentFile.size ? (currentFile.size / (1024 * 1024)).toFixed(1) + ' MB' : 'Unknown'
+        });
+      }
 
       resultsArea.innerHTML = `
         <div class="card">
