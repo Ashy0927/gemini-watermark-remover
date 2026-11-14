@@ -94,7 +94,7 @@ Feel free to check the [issues page](https://github.com/Ashy0927/gemini-watermar
 
 ## 💖 Support
 
-If you found this tool helpful, consider giving it a ⭐️ star on [GitHub](https://github.com/Ashy0927/gemini-watermark-remover) and following [Ash on GitHub](https://github.com/Ashy0927)!
+If you found this tool helpful, consider giving it a ⭐️ star on [GitHub](https://github.com/Ashy0927/gemini-watermark-remover) and following [RealAsh on GitHub](https://github.com/Ashy0927)!
 
 ---
 
