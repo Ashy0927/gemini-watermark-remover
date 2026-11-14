@@ -14,7 +14,7 @@
 <p align="center">
   <a href="https://ashy0927.github.io/gemini-watermark-remover/"><img src="https://img.shields.io/badge/🚀_Live_Demo-GitHub_Pages-6366f1?style=for-the-badge" alt="Live Demo" /></a>
   <a href="https://github.com/Ashy0927/gemini-watermark-remover/stargazers"><img src="https://img.shields.io/github/stars/Ashy0927/gemini-watermark-remover?style=for-the-badge&color=eab308" alt="GitHub Stars" /></a>
-  <a href="https://buymeacoffee.com/ishara.madu"><img src="https://img.shields.io/badge/☕_Donate-Buy_Me_A_Coffee-f43f5e?style=for-the-badge" alt="Buy Me A Coffee" /></a>
+  <a href="https://github.com/Ashy0927"><img src="https://img.shields.io/badge/GitHub-Ashy0927-10b981?style=for-the-badge&logo=github" alt="Author GitHub" /></a>
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </p>
 
@@ -94,11 +94,7 @@ Feel free to check the [issues page](https://github.com/Ashy0927/gemini-watermar
 
 ## 💖 Support
 
-If you found this tool helpful, consider giving it a ⭐️ star on GitHub or supporting via:
-
-<a href="https://buymeacoffee.com/ishara.madu" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="180" />
-</a>
+If you found this tool helpful, consider giving it a ⭐️ star on [GitHub](https://github.com/Ashy0927/gemini-watermark-remover) and following [Ash on GitHub](https://github.com/Ashy0927)!
 
 ---
 
