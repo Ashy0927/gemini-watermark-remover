@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://ashy0927.github.io/gemini-watermark-remover/sitemap.xml
