@@ -1,5 +1,10 @@
 .companion { position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: calc(100px + env(safe-area-inset-bottom)); z-index: 1001; display: flex; flex-direction: column; align-items: center; font-family: 'Plus Jakarta Sans', sans-serif; color: #173b38; }
 .companion button { font-family: inherit; cursor: pointer; }
+.companion.companion-roaming { right: auto; bottom: auto; transition: left .55s ease, top .55s ease; }
+.companion-bubble { position: fixed; box-sizing: border-box; padding: 14px 28px 14px 15px; border: 1px solid #cce4df; border-radius: 17px; background: #fff; box-shadow: 0 8px 28px #12382f20; color: #345d53; }
+.companion-bubble[hidden] { display: none; }
+.companion-bubble p { margin: 0; font-size: 12px; line-height: 1.6; }
+.companion-bubble button { position: absolute; right: 6px; top: 5px; width: 22px; height: 22px; border: 0; background: transparent; color: #718b83; font-size: 18px; }
 .companion button:focus-visible, .companion input:focus-visible { outline: 3px solid #329baf; outline-offset: 4px; }
 .companion-orb { --look-x: 0px; --look-y: 0px; width: 92px; height: 92px; padding: 6px; border: 1px solid #cce1e5; border-radius: 50%; background: linear-gradient(140deg,#f5ffff,#b7d9e7 42%,#5b8da3 70%,#e5ffff); box-shadow: 0 10px 25px #123e4226, inset 0 2px 4px white; transition: transform .2s; }
 .companion-orb:hover { transform: translateY(-3px); }
